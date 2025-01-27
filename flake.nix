@@ -32,7 +32,7 @@
           pkgs.arc-browser
           #pkgs.code-cursor
           pkgs.jdk
-          #pkgs.firefox
+          pkgs.firefox-unwrapped
           pkgs.iina
           pkgs.jetbrains.idea-ultimate
           pkgs.maccy
