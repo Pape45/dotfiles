@@ -66,7 +66,10 @@
           "/System/Applications/System Settings.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "/System/Applications/Utilities/Terminal.app"
+          "${pkgs.anki-bin}/Applications/Anki.app"
         ];
+
+        finder.FXPreferredViewStyle = "Nlsv";
       };
       
       # Necessary for using flakes on this system.
