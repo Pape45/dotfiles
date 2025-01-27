@@ -20,12 +20,28 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [ 
           pkgs.vim
-	        pkgs.oh-my-zsh
+	        #pkgs.oh-my-zsh
           pkgs.vscode
           pkgs.gh
           pkgs.stats
           pkgs.aldente
-          pkgs.git
+          pkgs.anki-bin
+          pkgs.ffmpeg_6
+          pkgs.uv
+          pkgs.yt-dlp
+          pkgs.arc-browser
+          #pkgs.code-cursor
+          pkgs.jdk
+          #pkgs.firefox
+          pkgs.iina
+          pkgs.jetbrains.idea-ultimate
+          pkgs.maccy
+          pkgs.monitorcontrol
+          pkgs.obsidian
+          #pkgs.portfolio
+          #pkgs.stremio
+          pkgs.the-unarchiver
+          pkgs.utm
       ];
 
       imports = [
