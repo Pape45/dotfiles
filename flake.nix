@@ -6,16 +6,28 @@
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     mac-app-util.url = "github:hraban/mac-app-util";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util}:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, home-manager}:
   let
+    username = "papemamadoudiagne";
+    homeDirectory = "/Users/papemamadoudiagne";
     configuration = { pkgs, ... }: {
+
+      # Setting user
+      users.users.${username} = {
+        name = username;
+        home = homeDirectory;
+      };
 
       imports = [
         mac-app-util.darwinModules.default
       ];
-      
+
       nixpkgs.config.allowUnfree = true;
       security.pam.enableSudoTouchIdAuth = true;
 
@@ -88,13 +100,29 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.${username} = { pkgs, ... }: {
+          home.stateVersion = "23.11";
+          home.username = username;
+          home.homeDirectory = homeDirectory;
+          programs.zsh = {
+            enable = true;
+          };
+        };
+      };
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#emacs
     darwinConfigurations."emacs" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ 
+        configuration 
+        home-manager.darwinModules.home-manager
+      ];
     };
   };
 }
