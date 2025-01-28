@@ -108,8 +108,19 @@
           home.stateVersion = "23.11";
           home.username = username;
           home.homeDirectory = homeDirectory;
+
           programs.zsh = {
             enable = true;
+            oh-my-zsh = {
+              enable = true;
+              plugins = [
+                "git"
+              ];
+              theme = "robbyrussell";
+            };
+            initExtra = ''
+              # Any additional zsh configuration can go here
+            '';
           };
         };
       };
