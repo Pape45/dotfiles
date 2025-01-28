@@ -64,6 +64,7 @@
         pkgs.jetbrains-mono
       ];
 
+
       # MacOs Settings
       system.defaults = {
         dock.persistent-apps = [
@@ -116,7 +117,7 @@
               plugins = [
                 "git"
               ];
-              theme = "robbyrussell";
+              theme = "af-magic";
             };
             initExtra = ''
               # Any additional zsh configuration can go here
