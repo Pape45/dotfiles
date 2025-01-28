@@ -11,39 +11,40 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util}:
   let
     configuration = { pkgs, ... }: {
-      
-      nixpkgs.config.allowUnfree = true;
-      security.pam.enableSudoTouchIdAuth = true;
-
-      environment.systemPackages = [ 
-          pkgs.vim
-	        #pkgs.oh-my-zsh
-          pkgs.vscode
-          pkgs.gh
-          pkgs.stats
-          pkgs.aldente
-          pkgs.anki-bin
-          pkgs.ffmpeg_6
-          pkgs.uv
-          pkgs.yt-dlp
-          pkgs.arc-browser
-          #pkgs.code-cursor
-          pkgs.jdk
-          pkgs.firefox-unwrapped
-          pkgs.iina
-          pkgs.jetbrains.idea-ultimate
-          pkgs.maccy
-          pkgs.monitorcontrol
-          pkgs.obsidian
-          #pkgs.portfolio
-          #pkgs.stremio
-          pkgs.the-unarchiver
-          pkgs.utm
-      ];
 
       imports = [
         mac-app-util.darwinModules.default
       ];
+      
+      nixpkgs.config.allowUnfree = true;
+      security.pam.enableSudoTouchIdAuth = true;
+
+      environment.systemPackages = with pkgs; [ 
+        vim
+        #oh-my-zsh
+        vscode
+        gh
+        stats
+        aldente
+        anki-bin
+        ffmpeg_6
+        uv
+        yt-dlp
+        arc-browser
+        #code-cursor
+        jdk
+        firefox-unwrapped
+        iina
+        jetbrains.idea-ultimate
+        maccy
+        monitorcontrol
+        obsidian
+        #portfolio
+        #stremio
+        the-unarchiver
+        utm
+      ];
+
       
       # Fonts
       fonts.packages = [
