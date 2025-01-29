@@ -23,5 +23,6 @@
     python313
     python313Packages.pip
     python311Full
+    darwin.PowerManagement
   ];
 }
