@@ -19,5 +19,9 @@
     obsidian
     the-unarchiver
     utm
+    python314
+    python313
+    python313Packages.pip
+    python311Full
   ];
 }

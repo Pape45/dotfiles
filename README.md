@@ -6,7 +6,7 @@ Ce projet contient une configuration Nix complète pour macOS, permettant de gé
 
 - `flake.nix`: Point d'entrée principal de la configuration. Contient les dépendances et les configurations globales.
 - `hosts/emacs/default.nix`: Configuration spécifique à l'hôte "emacs". Utilisé pour définir les paramètres et les paquets spécifiques à cette machine.
-- `modules/darwin/apps.nix`: Liste des applications à installer sur macOS. Inclut les applications nécessaires pour le développement et l'utilisation quotidienne.
+- `modules/darwin/apps.nix`: Liste des applications à installer sur macOS. 
 - `modules/darwin/dock.nix`: Configuration du Dock. Permet de personnaliser l'apparence et le comportement du Dock.
 - `modules/darwin/fonts.nix`: Configuration des polices. Gère l'installation et la configuration des polices de caractères.
 - `modules/darwin/system.nix`: Configuration système. Contient les paramètres globaux du système, comme les préférences de sécurité et de performance.
