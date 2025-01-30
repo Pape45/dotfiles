@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   system.defaults.dock.persistent-apps = [
+    "/System/Applications/Launchpad.app" 
     "/Applications/Safari.app"
     "${pkgs.firefox-unwrapped}/Applications/Firefox.app"
     "/System/Applications/Messages.app"
