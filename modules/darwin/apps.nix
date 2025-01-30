@@ -24,5 +24,6 @@
     python313Packages.pip
     python311Full
     darwin.PowerManagement
+    nodejs_22
   ];
 }
