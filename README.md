@@ -17,8 +17,13 @@ At the time of writting, everything is working on : MacOS 15.3 (24D60)
 ## Usage
 
 ```sh
+# Install nix
+https://github.com/DeterminateSystems/nix-installer
+
+# Update flake
 nix flake update --commit-lock-file
 
+# Build
 darwin-rebuild switch --flake ~/nix.#emacs
 ```
 
