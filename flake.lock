@@ -15,25 +15,6 @@
         "type": "github"
       }
     },
-    "emacs-overlay": {
-      "inputs": {
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable"
-      },
-      "locked": {
-        "lastModified": 1738228472,
-        "narHash": "sha256-8HVtDJLGO6/tx17iFL3yz6s65/y0eMtdp/w/l9FjH0g=",
-        "owner": "nix-community",
-        "repo": "emacs-overlay",
-        "rev": "bf817bb80b020ffdeee5769867b8862026bd5312",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "emacs-overlay",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -97,7 +78,7 @@
         "cl-nix-lite": "cl-nix-lite",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "systems": "systems"
       },
       "locked": {
@@ -137,38 +118,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1738142207,
-        "narHash": "sha256-NGqpVVxNAHwIicXpgaVqJEJWeyqzoQJ9oc8lnK9+WC4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1738023785,
-        "narHash": "sha256-BPHmb3fUwdHkonHyHi1+x89eXB3kA1jffIpwPVJIVys=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2b4230bf03deb33103947e2528cac2ed516c5c89",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1732617236,
         "narHash": "sha256-PYkz6U0bSEaEB1al7O1XsqVNeSNS+s3NVclJw7YC43w=",
         "owner": "NixOS",
@@ -183,7 +132,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1738136902,
         "narHash": "sha256-pUvLijVGARw4u793APze3j6mU1Zwdtz7hGkGGkD87qw=",
@@ -201,11 +150,10 @@
     },
     "root": {
       "inputs": {
-        "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
