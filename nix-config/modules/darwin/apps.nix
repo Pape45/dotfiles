@@ -25,6 +25,5 @@
     python311Full
     darwin.PowerManagement
     nodejs_22
-    emacs
   ];
 }

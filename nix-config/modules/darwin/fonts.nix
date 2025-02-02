@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-    pkgs.jetbrains-mono
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    jetbrains-mono
   ];
 }

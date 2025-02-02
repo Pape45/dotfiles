@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, home-manager}:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, home-manager, ... }: 
     let
       username = "papemamadoudiagne";
       homeDirectory = "/Users/papemamadoudiagne";
@@ -21,6 +21,7 @@
         modules = [ 
           ./hosts/emacs
           home-manager.darwinModules.home-manager
+          { _module.args.inputs = inputs; }
         ];
       };
     };

@@ -4,6 +4,7 @@
     ../../modules/darwin/dock.nix
     ../../modules/darwin/fonts.nix
     ../../modules/darwin/system.nix
+    ../../modules/darwin/emacs.nix 
     ../../modules/home-manager/zsh.nix
   ];
 
