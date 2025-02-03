@@ -11,6 +11,7 @@
     shellcheck
     pandoc
     emacsPackages.gcmh
+    fontconfig
   ];
 
   environment.systemPath = [ 
