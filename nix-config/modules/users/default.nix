@@ -1,5 +1,7 @@
-{ pkgs, username, ... }: {
-  imports = [ ];
+{ config, username, ... }: {
+  imports = [
+    ./home.nix
+  ];
 
   users.users.${username} = {
     name = username;

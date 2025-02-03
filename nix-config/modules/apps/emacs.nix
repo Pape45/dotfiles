@@ -1,35 +1,25 @@
-{ pkgs, ... }: {
+{ pkgs, username, ... }: {
   environment.systemPackages = with pkgs; [
-    emacs 
+    emacs
     git
     ripgrep
     coreutils-prefixed
     coreutils
+    emacs-all-the-icons-fonts
     fd
     clang
     shellcheck
-    fontconfig
     pandoc
-    emacs-all-the-icons-fonts
     emacsPackages.gcmh
-    emacsPackages.so-long
   ];
-
 
   environment.systemPath = [ 
     "$HOME/.emacs.d/bin"
     "${pkgs.emacs}/bin"
   ];
 
-  environment.variables = {
-    DOOMDIR = "$HOME/dotfiles/doom.d";
-  };
-
-
   system.activationScripts.postUserActivation.text = ''
-    # Switch to the user's context
-    sudo -u papemamadoudiagne bash <<'EOF'
-      # Check if Doom is already installed
+    sudo -u ${username} bash <<'EOF'
       if [ ! -d "$HOME/.emacs.d" ]; then
         echo "Installing Doom Emacs..."
         ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME/.emacs.d"

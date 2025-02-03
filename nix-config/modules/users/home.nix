@@ -1,18 +1,20 @@
-{ pkgs, ... }: {
+{ pkgs, username, ... }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.papemamadoudiagne = { pkgs, ... }: {
+    users.${username} = { pkgs, ... }: {
       home.stateVersion = "23.11";
-      home.username = "papemamadoudiagne";
-      home.homeDirectory = "/Users/papemamadoudiagne";
+      home.username = username;
+      home.homeDirectory = "/Users/${username}";
 
       programs.zsh = {
         enable = true;
-        autosuggestion.enable = true;
+        autosuggestion = {
+          enable = true;
+        };
         enableCompletion = true;
         syntaxHighlighting.enable = true;
-        initExtra = ''
+          initExtra = ''
           # Git aliases
           alias gst='git status'
           alias ga='git add'
