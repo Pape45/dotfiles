@@ -21,7 +21,7 @@
           alias gc='git commit'
           alias gcsc='git commit -m "Small changes"'
           alias gp='git push'
-          alias gpm = 'git push origin main'
+          alias gpm='git push origin main'
           alias gl='git pull'
         '';
       };
