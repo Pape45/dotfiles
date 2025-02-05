@@ -22,6 +22,8 @@
             "completion"
             "prompt"
             "git"
+            "syntax-highlighting"
+            "history-substring-search"
           ];
           prompt.theme = "pure";
         };
