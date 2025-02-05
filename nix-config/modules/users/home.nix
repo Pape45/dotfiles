@@ -9,34 +9,35 @@
 
       programs.zsh = {
         enable = true;
-        autosuggestion = {
+        prezto = {
           enable = true;
+          pmodules = [
+            "environment"
+            "terminal"
+            "editor"
+            "history"
+            "directory"
+            "spectrum"
+            "utility"
+            "completion"
+            "prompt"
+            "git"
+          ];
+          prompt.theme = "pure";
         };
-        enableCompletion = true;
-        syntaxHighlighting.enable = true;
-          initExtra = ''
-          # Git aliases
-          alias gst='git status'
-          alias ga='git add'
-          alias gc='git commit'
-          alias gcsc='git commit -m "Small changes"'
-          alias gp='git push'
-          alias gpm='git push origin main'
-          alias gl='git pull'
-        '';
       };
 
-      programs.starship = {
-        enable = true;
-        enableZshIntegration = true;
-        settings = {
-          add_newline = true;
-          character = {
-            success_symbol = "[➜](bold green)";
-            error_symbol = "[➜](bold red)";
-          };
-        };
-      };
+      # programs.starship = {
+      #   enable = true;
+      #   enableZshIntegration = true;
+      #   settings = {
+      #     add_newline = true;
+      #     character = {
+      #       success_symbol = "[➜](bold green)";
+      #       error_symbol = "[➜](bold red)";
+      #     };
+      #   };
+      # };
 
       home.file = {
         ".doom.d" = {
