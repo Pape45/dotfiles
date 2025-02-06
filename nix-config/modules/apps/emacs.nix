@@ -1,7 +1,6 @@
 { pkgs, username, ... }: {
   environment.systemPackages = with pkgs; [
     emacs
-    git
     ripgrep
     coreutils-prefixed
     coreutils
