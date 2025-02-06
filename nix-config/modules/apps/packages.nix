@@ -13,7 +13,6 @@
     firefox-unwrapped
     iina
     obsidian
-    the-unarchiver
     utm
     python314
     nodejs_22
@@ -26,5 +25,6 @@
     maccy
     monitorcontrol
     tree
+    _7zz
   ];
 }

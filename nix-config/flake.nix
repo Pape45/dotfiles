@@ -31,6 +31,7 @@
             ./modules/users
             ./hosts/emacs
             home-manager.darwinModules.home-manager
+            mac-app-util.darwinModules.default
           ];
         };
       };

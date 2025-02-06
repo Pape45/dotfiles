@@ -1,8 +1,11 @@
-{ pkgs, username, ... }: {
+{ pkgs, username, inputs, ... }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${username} = { pkgs, ... }: {
+      imports = [
+        inputs.mac-app-util.homeManagerModules.default
+      ];
       home.stateVersion = "23.11";
       home.username = username;
       home.homeDirectory = "/Users/${username}";
@@ -65,18 +68,6 @@
           prompt.theme = "pure";
         };
       };
-
-      # programs.starship = {
-      #   enable = true;
-      #   enableZshIntegration = true;
-      #   settings = {
-      #     add_newline = true;
-      #     character = {
-      #       success_symbol = "[➜](bold green)";
-      #       error_symbol = "[➜](bold red)";
-      #     };
-      #   };
-      # };
 
       home.file = {
         ".doom.d" = {
