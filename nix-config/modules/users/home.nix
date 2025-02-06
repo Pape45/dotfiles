@@ -17,6 +17,7 @@
             "history"
             "directory"
             "utility"
+            "spectrum"
             "completion"
             "prompt"
             "git"

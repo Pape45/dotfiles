@@ -25,5 +25,6 @@
     jetbrains.idea-ultimate
     maccy
     monitorcontrol
+    tree
   ];
 }
