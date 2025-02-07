@@ -43,6 +43,14 @@
       InitialKeyRepeat = 15;
       KeyRepeat = 2;
     };
+
+    CustomUserPreferences = {
+        "com.apple.Safari" = {
+        ShowOverlayStatusBar = true;
+        AutoOpenSafeDownloads = false;
+      };
+    };
+    
   };
 
   services.emacs.enable = false;
