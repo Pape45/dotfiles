@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   nix.settings.experimental-features = "nix-command flakes";
   programs.zsh.enable = true;
   system.stateVersion = 5;
@@ -44,6 +44,8 @@
       KeyRepeat = 2;
     };
   };
+
+  services.emacs.enable = false;
 
   # Activation script for immediate updates
   system.activationScripts.postUserActivation.text = ''
