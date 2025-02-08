@@ -26,5 +26,6 @@
     monitorcontrol
     tree
     _7zz
+    code-cursor
   ];
 }
