@@ -14,10 +14,10 @@
     iina
     obsidian
     utm
+    python313
     python314
     nodejs_22
     uv
-    python313
     python313Packages.pip
     python311Full
     darwin.PowerManagement
@@ -27,5 +27,8 @@
     tree
     _7zz
     code-cursor
+    cargo
+    rustc
+    telegram-desktop
   ];
 }
