@@ -11,6 +11,7 @@
        doom-dashboard
        hl-todo
        modeline
+       neotree
        ophints
        (popup +defaults)
        (vc-gutter +pretty)
@@ -18,7 +19,7 @@
        workspaces
 
        :editor
-       (evil +everywhere)
+       ;;(evil +everywhere)
        file-templates
        fold
        snippets
@@ -26,8 +27,12 @@
        :emacs
        dired
        electric
+       calendar
        undo
        vc
+
+       :term
+       eshell
 
        :checkers
        syntax
@@ -36,6 +41,7 @@
        (eval +overlay)
        lookup
        magit
+       pdf
 
        :os
        (:if (featurep :system 'macos) macos)
@@ -44,6 +50,7 @@
        emacs-lisp
        markdown
        org
+       (python +lsp)
        sh
 
        :config

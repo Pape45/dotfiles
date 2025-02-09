@@ -10,5 +10,4 @@
 ;; Performance optimizations
 (use-package! gcmh
   :config
-  (gcmh-mode 1)
-  (setq gcmh-high-cons-threshold 134217728))
+  (gcmh-mode 1))
