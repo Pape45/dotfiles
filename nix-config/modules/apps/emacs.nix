@@ -1,16 +1,16 @@
 { pkgs, username, ... }: {
   environment.systemPackages = with pkgs; [
     emacs
+    emacs-all-the-icons-fonts
+    emacsPackages.gcmh
     ripgrep
     coreutils-prefixed
     coreutils
-    emacs-all-the-icons-fonts
     fd
-    clang
     shellcheck
     pandoc
-    emacsPackages.gcmh
     fontconfig
+    python313Packages.python-lsp-server
   ];
 
   environment.systemPath = [ 

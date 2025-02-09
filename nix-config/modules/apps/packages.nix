@@ -15,11 +15,11 @@
     obsidian
     utm
     python313
+    python313Packages.pip
     python314
+    python311Full
     nodejs_22
     uv
-    python313Packages.pip
-    python311Full
     darwin.PowerManagement
     jetbrains.idea-ultimate
     maccy
@@ -30,5 +30,9 @@
     cargo
     rustc
     telegram-desktop
+    cmake
+    libtool
+    clang
+    docker
   ];
 }
