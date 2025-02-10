@@ -33,6 +33,5 @@
     cmake
     libtool
     clang
-    docker
   ];
 }
