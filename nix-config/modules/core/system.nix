@@ -42,15 +42,16 @@
     NSGlobalDomain = {
       InitialKeyRepeat = 15;
       KeyRepeat = 2;
+      "com.apple.trackpad.trackpadCornerClickBehavior" = 1;
+      "com.apple.mouse.tapBehavior" = 1;
     };
-
+    
     CustomUserPreferences = {
         "com.apple.Safari" = {
         ShowOverlayStatusBar = true;
         AutoOpenSafeDownloads = false;
       };
     };
-    
   };
 
   services.emacs.enable = false;
