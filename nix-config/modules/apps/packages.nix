@@ -33,5 +33,8 @@
     cmake
     libtool
     clang
+    mongodb-ce
+    mongosh
+    mongodb-tools
   ];
 }
