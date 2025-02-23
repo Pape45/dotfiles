@@ -13,11 +13,6 @@
     python313Packages.python-lsp-server
   ];
 
-  environment.systemPath = [ 
-    "$HOME/.emacs.d/bin"
-    "${pkgs.emacs}/bin"
-  ];
-
   system.activationScripts.postUserActivation.text = ''
     sudo -u ${username} bash <<'EOF'
       if [ ! -d "$HOME/.emacs.d" ]; then

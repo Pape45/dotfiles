@@ -10,6 +10,14 @@
       home.username = username;
       home.homeDirectory = "/Users/${username}";
 
+      home.sessionPath = [
+        "$HOME/.emacs.d/bin"
+      ];
+      
+      home.packages = with pkgs; [
+        emacs
+      ];
+
       programs.git = {
         enable = true;
         extraConfig = {

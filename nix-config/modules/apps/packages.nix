@@ -36,5 +36,7 @@
     mongodb-ce
     mongosh
     mongodb-tools
+    imagemagick
+    ghostscript
   ];
 }
