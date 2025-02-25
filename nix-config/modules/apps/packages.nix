@@ -38,5 +38,6 @@
     mongodb-tools
     imagemagick
     ghostscript
+    wget
   ];
 }

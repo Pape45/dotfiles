@@ -13,13 +13,11 @@
       home.sessionPath = [
         "$HOME/.emacs.d/bin"
       ];
-      
-      home.packages = with pkgs; [
-        emacs
-      ];
 
       programs.git = {
         enable = true;
+        userName = "Pape Mamadou Diagne";
+        userEmail = "66137298+Pape45@users.noreply.github.com";
         extraConfig = {
           core.excludesfile = "~/.gitignore_global";
         };

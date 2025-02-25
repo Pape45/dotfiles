@@ -5,6 +5,11 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   system.defaults = {
+    screensaver = {
+      askForPassword = true;
+      askForPasswordDelay = 0;
+    };
+
     dock = {
       show-recents = false;
       mru-spaces = false;
