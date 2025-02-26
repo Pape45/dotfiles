@@ -39,5 +39,7 @@
     imagemagick
     ghostscript
     wget
+    aria2
+    xcodes
   ];
 }
