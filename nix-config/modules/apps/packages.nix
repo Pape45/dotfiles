@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, username,... }: {
   environment.systemPackages = with pkgs; [
     vim
     vscode
