@@ -11,6 +11,7 @@
     arc-browser
     jdk
     firefox-unwrapped
+    brave
     iina
     obsidian
     utm
