@@ -4,6 +4,17 @@
   system.stateVersion = 5;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 30d";
+  };
+
+  nix.settings = {
+    max-jobs = "auto";
+  };
+
+  nix.optimise.automatic = true;
+
   system.defaults = {
     screensaver = {
       askForPassword = true;
