@@ -42,5 +42,7 @@
     wget
     aria2
     xcodes
+    docker
+    colima
   ];
 }
