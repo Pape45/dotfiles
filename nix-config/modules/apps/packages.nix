@@ -44,5 +44,6 @@
     xcodes
     docker
     colima
+    google-chrome
   ];
 }
