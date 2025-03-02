@@ -34,6 +34,10 @@
       EnableStandardClickToShowDesktop = false;
     };
 
+    screencapture = {
+      location = "/Users/$(whoami)/Downloads";
+    };
+
     finder = {
       AppleShowAllExtensions = true;
       CreateDesktop = false;
