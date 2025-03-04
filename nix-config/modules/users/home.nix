@@ -56,22 +56,14 @@
 
       programs.zsh = {
         enable = true;
-        prezto = {
+        oh-my-zsh = {
           enable = true;
-          pmodules = [
-            "environment"
-            "editor"
-            "history"
-            "directory"
-            "utility"
-            "spectrum"
-            "completion"
-            "prompt"
+          plugins = [
             "git"
-            "syntax-highlighting"
-            "history-substring-search"
+            "history"
+            "colored-man-pages"
           ];
-          prompt.theme = "pure";
+          theme = "avit";
         };
       };
 
