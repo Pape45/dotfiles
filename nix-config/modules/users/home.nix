@@ -65,6 +65,8 @@
           ];
           theme = "avit";
         };
+
+        syntaxHighlighting.enable = true;
       };
 
       home.file = {
