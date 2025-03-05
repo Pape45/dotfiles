@@ -45,8 +45,10 @@
 
     finder = {
       AppleShowAllExtensions = true;
-      CreateDesktop = false;
       FXDefaultSearchScope = "SCcf";
+      FXPreferredViewStyle = "Nlsv";
+      NewWindowTarget = "Home";
+      CreateDesktop = false;
       ShowPathbar = true;
       ShowRemovableMediaOnDesktop = false;
       ShowStatusBar = true;
