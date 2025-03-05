@@ -15,15 +15,20 @@
 
   nix.optimise.automatic = true;
 
+  power.sleep = {
+    display = 5;
+  };
+
   system.defaults = {
-    screensaver = {
-      askForPassword = true;
-      askForPasswordDelay = 0;
+
+    alf = {
+      globalstate = 1;
     };
 
     dock = {
       show-recents = false;
       mru-spaces = false;
+      largesize = 26;
       wvous-bl-corner = 1;
       wvous-br-corner = 1;
       wvous-tl-corner = 1;
@@ -45,7 +50,6 @@
       ShowPathbar = true;
       ShowRemovableMediaOnDesktop = false;
       ShowStatusBar = true;
-
     };
 
     hitoolbox = {
@@ -76,9 +80,33 @@
         AutoOpenSafeDownloads = false;
       };
     };
+
+    controlcenter = {
+      AirDrop = false;
+      BatteryShowPercentage = false;
+
+    };
   };
 
   services.emacs.enable = false;
+
+  system.activationScripts.powerManagementSettings.text = ''
+    echo "Configuring power management settings..."
+    
+    # Désactiver l'économiseur d'écran
+    defaults -currentHost write com.apple.screensaver idleTime -int 0
+    
+    # Configuration des délais d'extinction de l'écran
+    # Sur batterie: 2 minutes
+    /usr/bin/pmset -b displaysleep 2
+    
+    # Sur secteur: 5 minutes 
+    /usr/bin/pmset -c displaysleep 10
+    
+    # Demander le mot de passe immédiatement après la mise en veille de l'écran
+    defaults write com.apple.screensaver askForPassword -int 1
+    defaults write com.apple.screensaver askForPasswordDelay -int 0
+  '';
 
   # Activation script for immediate updates
   system.activationScripts.postUserActivation.text = ''

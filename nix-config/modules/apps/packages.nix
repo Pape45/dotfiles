@@ -45,5 +45,6 @@
     docker
     colima
     google-chrome
+    qbittorrent
   ];
 }
