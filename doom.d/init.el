@@ -42,6 +42,7 @@
        lookup
        magit
        pdf
+       lsp
 
        :os
        (:if (featurep :system 'macos) macos)

@@ -22,4 +22,12 @@
       fi
 EOF
   '';
+
+  system.activationScripts.doomeEmacsSync.text = ''
+  # Vérifier si Emacs est installé et a changé
+  if [ -L /run/current-system/sw/bin/emacs ]; then
+    echo "Synchronizing Doom Emacs configuration..."
+    sudo -u ${username} bash -c 'export PATH="/run/current-system/sw/bin:$HOME/.emacs.d/bin:$PATH"; $HOME/.emacs.d/bin/doom sync -u'
+  fi
+'';
 }

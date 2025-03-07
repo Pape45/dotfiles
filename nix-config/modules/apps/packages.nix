@@ -13,7 +13,7 @@
     firefox-unwrapped
     brave
     iina
-    obsidian
+    obsidian-export
     utm
     python313
     python313Packages.pip
