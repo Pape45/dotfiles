@@ -14,6 +14,11 @@
         "$HOME/.emacs.d/bin"
       ];
 
+      home.sessionVariables = {
+        LANG = "en_US.UTF-8";
+        LC_ALL = "en_US.UTF-8";
+      };
+
       programs.git = {
         enable = true;
         userName = "Pape Mamadou Diagne";

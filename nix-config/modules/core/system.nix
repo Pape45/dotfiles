@@ -4,6 +4,14 @@
   system.stateVersion = 5;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  system.defaults.NSGlobalDomain.AppleLocale = "en_US.UTF-8";
+  system.defaults.NSGlobalDomain.AppleLanguages = [ "en-US" ];
+
+  environment.variables = {
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+  };
+
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 30d";
