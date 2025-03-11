@@ -16,7 +16,7 @@
   nix.optimise.automatic = true;
 
   power.sleep = {
-    display = 5;
+    display = 5; # It's the time on AC power not on battery
   };
 
   system.defaults = {
@@ -40,7 +40,7 @@
     };
 
     screencapture = {
-      location = "/Users/$(whoami)/Downloads";
+      location = "/Users/papemamadoudiagne/Downloads";
     };
 
     finder = {
@@ -91,24 +91,6 @@
   };
 
   services.emacs.enable = false;
-
-  system.activationScripts.powerManagementSettings.text = ''
-    echo "Configuring power management settings..."
-    
-    # Désactiver l'économiseur d'écran
-    defaults -currentHost write com.apple.screensaver idleTime -int 0
-    
-    # Configuration des délais d'extinction de l'écran
-    # Sur batterie: 2 minutes
-    /usr/bin/pmset -b displaysleep 2
-    
-    # Sur secteur: 5 minutes 
-    /usr/bin/pmset -c displaysleep 10
-    
-    # Demander le mot de passe immédiatement après la mise en veille de l'écran
-    defaults write com.apple.screensaver askForPassword -int 1
-    defaults write com.apple.screensaver askForPasswordDelay -int 0
-  '';
 
   # Activation script for immediate updates
   system.activationScripts.postUserActivation.text = ''
