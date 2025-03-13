@@ -46,5 +46,7 @@
     colima
     google-chrome
     qbittorrent
+    mysql80
+    obsidian
   ];
 }
