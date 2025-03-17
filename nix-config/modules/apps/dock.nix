@@ -13,6 +13,7 @@
       "/System/Applications/Utilities/Terminal.app"
       "${pkgs.emacs}/Applications/Emacs.app"
       "${pkgs.anki-bin}/Applications/Anki.app"
+      "${pkgs.obsidian}/Applications/Obsidian.app"
     ];
   };
 }
