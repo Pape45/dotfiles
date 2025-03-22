@@ -10,7 +10,6 @@
     yt-dlp
     arc-browser
     jdk
-    firefox-unwrapped
     brave
     iina
     obsidian-export
