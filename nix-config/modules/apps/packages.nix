@@ -16,6 +16,10 @@
     utm
     python313
     python313Packages.pip
+    python313Packages.isort
+    pipenv
+    python313Packages.nose2pytest
+    python313Packages.pytest
     python314
     python311Full
     nodejs_22
