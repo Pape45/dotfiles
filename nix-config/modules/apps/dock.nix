@@ -16,5 +16,10 @@
       "${pkgs.obsidian}/Applications/Obsidian.app"
       "${pkgs.google-chrome}/Applications/Google Chrome.app"
     ];
+
+    persistent-others = [
+       "/Users/${username}/Documents"
+       "/Users/${username}/Downloads"
+     ];
   };
 }
