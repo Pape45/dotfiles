@@ -32,13 +32,9 @@
     code-cursor
     cargo
     rustc
-    telegram-desktop
     cmake
     libtool
     clang
-    mongodb-ce
-    mongosh
-    mongodb-tools
     imagemagick
     ghostscript
     wget
