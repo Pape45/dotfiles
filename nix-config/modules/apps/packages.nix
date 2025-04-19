@@ -46,5 +46,6 @@
     qbittorrent
     obsidian
     mysql80
+    texliveFull
   ];
 }

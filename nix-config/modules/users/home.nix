@@ -74,17 +74,17 @@
         syntaxHighlighting.enable = true;
       };
 
-      home.file = {
-        ".doom.d" = {
-          source = ../../../doom.d;
-          recursive = true;
-          onChange = ''
-            export PATH="${pkgs.emacs}/bin:${pkgs.git}/bin:$HOME/.emacs.d/bin:$PATH"
-            $HOME/.emacs.d/bin/doom sync
-            $HOME/.emacs.d/bin/doom env
-          '';
-        };
-      }; 
+      # home.file = {
+      #   ".doom.d" = {
+      #     source = ../../../doom.d;
+      #     recursive = true;
+      #     onChange = ''
+      #       export PATH="${pkgs.emacs}/bin:${pkgs.git}/bin:$HOME/.emacs.d/bin:$PATH"
+      #       $HOME/.emacs.d/bin/doom sync
+      #       $HOME/.emacs.d/bin/doom env
+      #     '';
+      #   };
+      # }; 
     };
   };
 }
