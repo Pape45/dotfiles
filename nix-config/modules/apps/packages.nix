@@ -11,7 +11,7 @@
     arc-browser
     jdk
     brave
-    iina
+    #iina
     obsidian-export
     utm
     python313

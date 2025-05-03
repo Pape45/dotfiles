@@ -11,7 +11,7 @@
       "/System/Applications/App Store.app"
       "/System/Applications/System Settings.app"
       "/System/Applications/Utilities/Terminal.app"
-      #"${pkgs.emacs}/Applications/Emacs.app"
+      "${pkgs.emacs}/Applications/Emacs.app"
       "${pkgs.anki-bin}/Applications/Anki.app"
       "${pkgs.obsidian}/Applications/Obsidian.app"
       "${pkgs.google-chrome}/Applications/Google Chrome.app"
