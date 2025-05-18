@@ -4,7 +4,6 @@
   system.stateVersion = 5;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  # Set the primary user for system defaults
   system.primaryUser = username;
 
   environment.variables = {
