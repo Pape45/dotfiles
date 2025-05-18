@@ -1,8 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, username, ... }: {
   nix.settings.experimental-features = "nix-command flakes";
   programs.zsh.enable = true;
   system.stateVersion = 5;
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  # Set the primary user for system defaults
+  system.primaryUser = username;
 
   environment.variables = {
     LANG = "en_US.UTF-8";
@@ -98,7 +101,19 @@
   services.emacs.enable = false;
 
   # Activation script for immediate updates
-  system.activationScripts.postUserActivation.text = ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  system.activationScripts.settings.text = ''
+    # Run activateSettings as the primary user
+    echo "Applying system defaults..."
+    sudo -u ${username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
+
+  # Add a separate activation script to handle Safari preferences properly
+  system.activationScripts.safariPrefs.text = ''
+    echo "Setting Safari preferences..."
+    # Ensure the directory exists
+    mkdir -p "/Users/${username}/Library/Containers/com.apple.Safari/Data/Library/Preferences"
+    # Apply Safari preferences directly 
+    sudo -u ${username} defaults write "/Users/${username}/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari" ShowOverlayStatusBar -bool true
+    sudo -u ${username} defaults write "/Users/${username}/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari" AutoOpenSafeDownloads -bool false
   '';
 }
