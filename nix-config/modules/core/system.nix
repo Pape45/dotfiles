@@ -93,26 +93,12 @@
     controlcenter = {
       AirDrop = false;
       BatteryShowPercentage = false;
-
-    };
+    }
   };
 
   services.emacs.enable = false;
 
-  # Activation script for immediate updates
-  system.activationScripts.settings.text = ''
-    # Run activateSettings as the primary user
-    echo "Applying system defaults..."
-    sudo -u ${username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-  '';
-
-  # Add a separate activation script to handle Safari preferences properly
-  system.activationScripts.safariPrefs.text = ''
-    echo "Setting Safari preferences..."
-    # Ensure the directory exists
-    mkdir -p "/Users/${username}/Library/Containers/com.apple.Safari/Data/Library/Preferences"
-    # Apply Safari preferences directly 
-    sudo -u ${username} defaults write "/Users/${username}/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari" ShowOverlayStatusBar -bool true
-    sudo -u ${username} defaults write "/Users/${username}/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari" AutoOpenSafeDownloads -bool false
+  system.activationScripts.postActivation.text = ''
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 }

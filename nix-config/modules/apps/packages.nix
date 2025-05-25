@@ -46,5 +46,6 @@
     obsidian
     mysql80
     texliveFull
+    vlc-bin-universal
   ];
 }
