@@ -47,5 +47,7 @@
     mysql80
     texliveFull
     vlc-bin-universal
+    git
+    biber
   ];
 }

@@ -35,7 +35,7 @@
     dock = {
       show-recents = false;
       mru-spaces = false;
-      largesize = 26;
+      largesize = 24;
       wvous-bl-corner = 1;
       wvous-br-corner = 1;
       wvous-tl-corner = 1;
@@ -93,7 +93,7 @@
     controlcenter = {
       AirDrop = false;
       BatteryShowPercentage = false;
-    }
+    };
   };
 
   services.emacs.enable = false;
