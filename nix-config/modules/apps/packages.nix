@@ -49,5 +49,7 @@
     vlc-bin-universal
     git
     biber
+    zed-editor
+    repomix
   ];
 }
