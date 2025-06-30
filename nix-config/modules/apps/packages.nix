@@ -51,5 +51,9 @@
     biber
     zed-editor
     repomix
+    claude-code
+    #cocoapods
+    #flutter332
+    windsurf
   ];
 }

@@ -27,11 +27,12 @@
     display = 5; # It's the time on AC power not on battery
   };
 
-  system.defaults = {
+  networking.applicationFirewall = {
+    enable = true;
+    blockAllIncoming = false;
+  };
 
-    alf = {
-      globalstate = 1;
-    };
+  system.defaults = {
 
     dock = {
       show-recents = false;
