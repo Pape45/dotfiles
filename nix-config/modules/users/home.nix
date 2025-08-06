@@ -13,11 +13,16 @@
       home.sessionPath = [
         "$HOME/.emacs.d/bin"
         "${pkgs.texliveFull}/bin"
+        "$HOME/development/flutter/bin"
+        "$HOME/.gem/ruby/3.3.0/bin"
+        "${pkgs.cocoapods}/bin"
+        "/usr/local/go/bin"
       ];
 
       home.sessionVariables = {
         LANG = "en_US.UTF-8";
         LC_ALL = "en_US.UTF-8";
+        CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
       };
 
       programs.git = {

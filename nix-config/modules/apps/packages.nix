@@ -8,10 +8,10 @@
     anki-bin
     ffmpeg_6
     yt-dlp
-    arc-browser
-    jdk
+    #arc-browser
+    temurin-bin
+    temurin-jre-bin
     brave
-    obsidian-export
     utm
     python313
     python313Packages.pip
@@ -23,37 +23,34 @@
     nodejs_22
     uv
     darwin.PowerManagement
-    jetbrains.idea-ultimate
     maccy
     monitorcontrol
     tree
     _7zz
-    code-cursor
     cargo
     rustc
     cmake
     libtool
-    clang
     imagemagick
     ghostscript
     wget
     aria2
-    xcodes
     docker
     colima
     google-chrome
     qbittorrent
     obsidian
-    mysql80
+    #mysql80
     texliveFull
     vlc-bin-universal
     git
     biber
-    zed-editor
     repomix
-    claude-code
-    #cocoapods
-    #flutter332
-    windsurf
+    ruby
+    google-chrome
+    cocoapods
+    #go
+    signal-desktop-bin
+    gradle
   ];
 }
