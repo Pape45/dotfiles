@@ -22,7 +22,6 @@
     python311Full
     nodejs_22
     uv
-    darwin.PowerManagement
     maccy
     monitorcontrol
     tree

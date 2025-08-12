@@ -74,7 +74,7 @@
             "history"
             "colored-man-pages"
           ];
-          theme = "avit";
+          theme = "candy";
         };
 
         syntaxHighlighting.enable = true;
