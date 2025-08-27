@@ -17,6 +17,7 @@
         "$HOME/.gem/ruby/3.3.0/bin"
         "${pkgs.cocoapods}/bin"
         "/usr/local/go/bin"
+        "$HOME/.pub-cache/bin"
       ];
 
       home.sessionVariables = {

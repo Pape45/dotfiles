@@ -21,6 +21,7 @@
     python314
     python311Full
     nodejs_22
+    pnpm
     uv
     maccy
     monitorcontrol
@@ -51,5 +52,6 @@
     #go
     signal-desktop-bin
     gradle
+    firebase-tools
   ];
 }
