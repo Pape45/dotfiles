@@ -8,7 +8,7 @@
     anki-bin
     ffmpeg_6
     yt-dlp
-    #arc-browser
+    arc-browser
     temurin-bin
     temurin-jre-bin
     brave
@@ -50,8 +50,9 @@
     google-chrome
     cocoapods
     #go
-    signal-desktop-bin
     gradle
-    firebase-tools
+    opencode
+    R
+    rstudio
   ];
 }
