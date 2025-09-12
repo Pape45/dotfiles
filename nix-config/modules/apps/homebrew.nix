@@ -27,6 +27,9 @@
       "visual-studio-code"
       "adguard"
       "altserver"
+      "microsoft-word"
+      "microsoft-excel"
+      "microsoft-powerpoint"
     ];
     
     masApps = {
