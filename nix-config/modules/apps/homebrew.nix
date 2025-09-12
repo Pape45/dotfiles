@@ -23,7 +23,8 @@
     ];
     
     casks = [
-      # GUI applications
+      font-fira-code
+      font-jetbrains-mono
     ];
     
     masApps = {
