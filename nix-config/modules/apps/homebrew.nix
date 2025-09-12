@@ -23,6 +23,10 @@
     casks = [
       "font-fira-code"
       "font-jetbrains-mono"
+      "visual-studio-code@insiders"
+      "visual-studio-code"
+      "adguard"
+      "altserver"
     ];
     
     masApps = {
