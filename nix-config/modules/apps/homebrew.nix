@@ -1,9 +1,7 @@
 { config, pkgs, inputs, username, ... }: {
   nix-homebrew = {
     enable = true;
-    enableRosetta = true;
     user = username;
-    autoMigrate = true;
     
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
@@ -23,8 +21,8 @@
     ];
     
     casks = [
-      font-fira-code
-      font-jetbrains-mono
+      "font-fira-code"
+      "font-jetbrains-mono"
     ];
     
     masApps = {
