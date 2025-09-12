@@ -8,7 +8,6 @@
     anki-bin
     ffmpeg_6
     yt-dlp
-    arc-browser
     temurin-bin
     temurin-jre-bin
     brave
@@ -19,7 +18,6 @@
     pipenv
     python313Packages.pytest
     python314
-    python311Full
     nodejs_22
     pnpm
     uv
@@ -35,9 +33,7 @@
     ghostscript
     wget
     aria2
-    docker
-    colima
-    google-chrome
+    #docker
     qbittorrent
     obsidian
     #mysql80
@@ -47,12 +43,8 @@
     biber
     repomix
     ruby
-    google-chrome
     cocoapods
-    #go
     gradle
     opencode
-    R
-    rstudio
   ];
 }
