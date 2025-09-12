@@ -12,10 +12,10 @@
     temurin-jre-bin
     brave
     utm
+    pipenv
     python313
     python313Packages.pip
     python313Packages.isort
-    pipenv
     python313Packages.pytest
     python314
     nodejs_22
@@ -33,10 +33,8 @@
     ghostscript
     wget
     aria2
-    #docker
     qbittorrent
     obsidian
-    #mysql80
     texliveFull
     vlc-bin-universal
     git
