@@ -30,10 +30,14 @@
       "microsoft-word"
       "microsoft-excel"
       "microsoft-powerpoint"
+      "portfolioperformance"
+      #"telegram"
+      "stremio"
+      #"tor-browser"
     ];
     
     masApps = {
-      # Mac App Store applications
+      "Amphetamine" = 937984704;  # App to keep your Mac awake
     };
     
     onActivation = {
