@@ -34,6 +34,7 @@
       #"telegram"
       "stremio"
       #"tor-browser"
+      "nvidia-geforce-now"
     ];
     
     masApps = {
