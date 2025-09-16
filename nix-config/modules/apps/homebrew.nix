@@ -17,7 +17,6 @@
     taps = builtins.attrNames config.nix-homebrew.taps;
     
     brews = [
-      # Command line tools
     ];
     
     casks = [
@@ -35,6 +34,7 @@
       "stremio"
       #"tor-browser"
       "nvidia-geforce-now"
+      "orbstack"
     ];
     
     masApps = {

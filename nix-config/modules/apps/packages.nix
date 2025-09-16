@@ -17,6 +17,7 @@
     python313Packages.isort
     python313Packages.pytest
     python314
+    codex
     nodejs_22
     pnpm
     uv
