@@ -17,11 +17,11 @@
     taps = builtins.attrNames config.nix-homebrew.taps;
     
     brews = [
+      "openblas"
+      "gcc"
     ];
     
     casks = [
-      "font-fira-code"
-      "font-jetbrains-mono"
       "visual-studio-code@insiders"
       "visual-studio-code"
       "adguard"
@@ -35,6 +35,7 @@
       #"tor-browser"
       "nvidia-geforce-now"
       "orbstack"
+      #"pearcleaner"
     ];
     
     masApps = {
