@@ -1,7 +1,7 @@
 { pkgs, username, ... }: {
   system.defaults.dock = {
     persistent-apps =  [
-      "/System/Applications/Launchpad.app" 
+      "/System/Applications/Apps.app" 
       "/Applications/Safari.app"
       "/System/Applications/Messages.app"
       "/System/Applications/Mail.app"

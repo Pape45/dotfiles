@@ -73,7 +73,7 @@
 
     trackpad = {
       Clicking = true;
-      #TrackpadRightClick = true;
+      TrackpadRightClick = true;
       TrackpadThreeFingerDrag = false;
       TrackpadThreeFingerTapGesture = 0;
     };
