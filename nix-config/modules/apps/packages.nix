@@ -44,5 +44,6 @@
     cocoapods
     gradle
     opencode
+    zotero
   ];
 }
