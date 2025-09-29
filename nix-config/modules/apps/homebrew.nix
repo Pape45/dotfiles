@@ -17,8 +17,6 @@
     taps = builtins.attrNames config.nix-homebrew.taps;
     
     brews = [
-      "openblas"
-      "gcc"
     ];
     
     casks = [
@@ -36,6 +34,7 @@
       "nvidia-geforce-now"
       "orbstack"
       "pearcleaner"
+      "ProtonVPN"
     ];
     
     masApps = {
