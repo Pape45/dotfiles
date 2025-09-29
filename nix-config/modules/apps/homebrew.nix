@@ -35,7 +35,7 @@
       #"tor-browser"
       "nvidia-geforce-now"
       "orbstack"
-      #"pearcleaner"
+      "pearcleaner"
     ];
     
     masApps = {
