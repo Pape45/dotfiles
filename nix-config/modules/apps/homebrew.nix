@@ -35,6 +35,7 @@
       "orbstack"
       "pearcleaner"
       "ProtonVPN"
+      "transmission"
     ];
     
     masApps = {
