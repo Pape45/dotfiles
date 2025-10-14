@@ -43,7 +43,8 @@
     ruby
     cocoapods
     gradle
-    opencode
-    zotero
+    #opencode
+    gnutar
+    pigz
   ];
 }
