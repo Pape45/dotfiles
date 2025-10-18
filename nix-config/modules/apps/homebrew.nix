@@ -29,17 +29,13 @@
       "microsoft-powerpoint"
       "portfolioperformance"
       #"telegram"
-      "stremio"
       #"tor-browser"
-      "nvidia-geforce-now"
       "orbstack"
-      "pearcleaner"
       "ProtonVPN"
-      "transmission"
     ];
     
     masApps = {
-      "Amphetamine" = 937984704;  # App to keep your Mac awake
+      #"Amphetamine" = 937984704;  # App to keep your Mac awake
     };
     
     onActivation = {
