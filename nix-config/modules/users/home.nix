@@ -121,6 +121,34 @@
           $DRY_RUN_CMD echo "Syncing Doom Emacs..."
           $DRY_RUN_CMD $HOME/.emacs.d/bin/doom sync
         fi
+        
+        # Vérifier si doom upgrade est nécessaire (dernier upgrade > 30 jours)
+        UPGRADE_MARKER="$HOME/.emacs.d/.last-doom-upgrade"
+        DAYS_THRESHOLD=30
+        
+        if [ -f "$UPGRADE_MARKER" ]; then
+          LAST_UPGRADE=$(cat "$UPGRADE_MARKER")
+          CURRENT_DATE=$(date +%s)
+          DAYS_SINCE=$(( (CURRENT_DATE - LAST_UPGRADE) / 86400 ))
+          
+          if [ "$DAYS_SINCE" -ge "$DAYS_THRESHOLD" ]; then
+            echo ""
+            echo "╔══════════════════════════════════════════════════════════════╗"
+            echo "║  🔔 DOOM EMACS UPGRADE REMINDER                              ║"
+            echo "║                                                              ║"
+            echo "║  Last upgrade: $DAYS_SINCE days ago                                      ║"
+            echo "║                                                              ║"
+            echo "║  Run: ~/.emacs.d/bin/doom upgrade                            ║"
+            echo "║                                                              ║"
+            echo "║  After upgrading, mark as done:                              ║"
+            echo "║  date +%s > ~/.emacs.d/.last-doom-upgrade                    ║"
+            echo "╚══════════════════════════════════════════════════════════════╝"
+            echo ""
+          fi
+        else
+          # Créer le fichier marker si c'est la première fois
+          $DRY_RUN_CMD date +%s > "$UPGRADE_MARKER"
+        fi
       '';
     };
   };
