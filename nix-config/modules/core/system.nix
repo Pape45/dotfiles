@@ -24,7 +24,7 @@
   nix.optimise.automatic = true;
 
   power.sleep = {
-    display = 5; # It's the time on AC power not on battery
+    display = 5;
   };
 
   networking.applicationFirewall = {

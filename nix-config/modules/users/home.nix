@@ -134,9 +134,9 @@
           if [ "$DAYS_SINCE" -ge "$DAYS_THRESHOLD" ]; then
             echo ""
             echo "╔══════════════════════════════════════════════════════════════╗"
-            echo "║  🔔 DOOM EMACS UPGRADE REMINDER                              ║"
+            echo "║  DOOM EMACS UPGRADE REMINDER                                 ║"
             echo "║                                                              ║"
-            echo "║  Last upgrade: $DAYS_SINCE days ago                                      ║"
+            echo "║  Last upgrade: $DAYS_SINCE days ago                                   ║"
             echo "║                                                              ║"
             echo "║  Run: ~/.emacs.d/bin/doom upgrade                            ║"
             echo "║                                                              ║"
