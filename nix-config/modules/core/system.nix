@@ -1,7 +1,7 @@
 { config, pkgs, username, ... }: {
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.zsh.enable = true;
-  system.stateVersion = 5;
+  system.stateVersion = 6;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   system.primaryUser = username;

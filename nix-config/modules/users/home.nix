@@ -6,7 +6,7 @@
       imports = [
         inputs.mac-app-util.homeManagerModules.default
       ];
-      home.stateVersion = "23.11";
+      home.stateVersion = "24.11";
       home.username = username;
       home.homeDirectory = "/Users/${username}";
 
