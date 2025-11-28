@@ -4,6 +4,7 @@
   system.stateVersion = 6;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  # Required for user-specific options like dock, finder, homebrew, etc.
   system.primaryUser = username;
 
   environment.variables = {
