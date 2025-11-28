@@ -1,41 +1,45 @@
-# Nix Configuration for macOS
+# Nix + nix-darwin setup (macOS 15.3)
 
-This is my personal Nix configuration for macOS.
-At the time of writting, everything is working on : MacOS 15.3 (24D60)
+Personal Darwin flake with Home Manager and Homebrew integration.
 
-## Project Structure
+## Layout
 
-- `flake.nix`: Main entry point of the configuration. Contains dependencies and global configurations.
-- `hosts/emacs/default.nix`: Host-specific configuration for "emacs". Used to define settings and packages specific to this machine.
-- `modules/darwin/apps.nix`: List of applications to install on macOS.
-- `modules/darwin/dock.nix`: Dock configuration. Allows customization of the Dock's appearance and behavior.
-- `modules/darwin/fonts.nix`: Font configuration. Manages the installation and configuration of fonts.
-- `modules/darwin/system.nix`: System configuration. Contains global system settings, such as security and performance preferences.
-- `modules/home-manager/zsh.nix`: ZSH configuration with Home Manager. Customizes the ZSH shell with plugins and themes.
-- `README.md`: This file. Contains information about the project's structure and usage.
+- `flake.nix` – entrypoint, defines the `emacs` host.
+- `hosts/emacs/` – host-level bits (name/home).
+- `modules/core/` – base system (system.nix), fonts, security, nix settings (imports `modules/system/nix.nix`).
+- `modules/macos/defaults.nix` – all `system.defaults` (Dock/Finder/trackpad/login/etc.).
+- `modules/apps/` – packages, Homebrew, Emacs extras.
+- `modules/users/home.nix` – Home Manager for the primary user.
+- `modules/data/` – shared lists (system packages, fonts, Dock apps, Homebrew casks).
+- `modules/system/nix.nix` – nix daemon + GC/optimise settings.
 
-## Usage
+## How to use
 
 ```sh
-# Install nix
-https://github.com/DeterminateSystems/nix-installer
+# install nix
+curl -L https://install.determinate.systems/nix | sh
 
-# Update flake
+# update inputs
 nix flake update --commit-lock-file
 
-# Build
-darwin-rebuild switch --flake ~/nix.#emacs
+# build/switch
+sudo -i darwin-rebuild switch --flake ~/dotfiles/nix-config
 ```
 
-## Additional information
+If the repo is dirty, add new files (`modules/data/*`, `modules/macos/defaults.nix`, etc.) before rebuilding so the flake can see them.
 
-- I'll need to manually configure the font of the terminal cuz i'am unable to automate the default macOS terminal font neither with home manager or starships.
+## Homebrew policy
 
-## Resources
+Currently `homebrew.onActivation = { autoUpdate = true; upgrade = true; cleanup = "zap"; }`. This keeps Homebrew in sync with the declared casks but makes rebuilds less deterministic. Flip these to `false/false/"none"` if you want idempotent rebuilds and manage `brew upgrade` manually.
 
-- [Nix Documentation](https://nixos.org/manual/nix/stable/)
-- [Home Manager Documentation](https://nix-community.github.io/home-manager/)
-- [Nix Flakes](https://nixos.wiki/wiki/Flakes)
-- [Get all parameters](file:///nix/store/c831ggd6ncv1ks2mf32ngan4sq5p1kyb-darwin-manual-html/share/doc/darwin/index.html)
-- [Nix darwin Wiki](https://daiderd.com/nix-darwin/manual/index.html)
-- [Nix flakes (unofficial) manual](https://nixos-and-flakes.thiscute.world/)
+## Notes
+
+- Terminal app font still needs manual tweaking (macOS Terminal doesn’t expose defaults cleanly).
+- Touch ID for sudo is enabled via `security.pam.services.sudo_local.touchIdAuth = true;`.
+
+## References
+
+- [nix](https://nixos.org/manual/nix/stable/)
+- [nix-darwin manual](https://daiderd.com/nix-darwin/manual/index.html)
+- [Home Manager](https://nix-community.github.io/home-manager/)
+- [Flakes wiki](https://nixos.wiki/wiki/Flakes)

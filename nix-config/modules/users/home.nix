@@ -30,10 +30,10 @@
             name = "Pape Mamadou Diagne";
             email = "66137298+Pape45@users.noreply.github.com";
           };
-          core.excludesfile = "~/.gitignore_global";
-        };
-        extraConfig = {
-          core.editor = "vim";
+          core = {
+            excludesfile = "~/.gitignore_global";
+            editor = "vim";
+          };
           pull.rebase = true;
           init.defaultBranch = "main";
           rebase.autostash = true;
@@ -104,29 +104,29 @@
       home.activation.doomEmacs = inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
         export PATH="${pkgs.emacs}/bin:${pkgs.git}/bin:$HOME/.emacs.d/bin:$PATH"
         
-        # Supprimer .emacs.d si ce n'est pas Doom
+        # Remove non-Doom ~/.emacs.d to avoid conflicts
         if [ -d "$HOME/.emacs.d" ] && [ ! -d "$HOME/.emacs.d/.git" ]; then
           $DRY_RUN_CMD echo "Removing non-Doom .emacs.d directory..."
           $DRY_RUN_CMD rm -rf "$HOME/.emacs.d"
         fi
         
-        # Clone Doom Emacs si absent
+        # Clone Doom Emacs if missing
         if [ ! -d "$HOME/.emacs.d/.git" ]; then
           $DRY_RUN_CMD echo "Cloning Doom Emacs..."
           $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME/.emacs.d"
         fi
         
-        # Installer Doom si jamais initialisé
+        # Install Doom if not initialized yet
         if [ ! -d "$HOME/.emacs.d/.local/etc/@" ]; then
           $DRY_RUN_CMD echo "Installing Doom Emacs..."
           $DRY_RUN_CMD yes | $HOME/.emacs.d/bin/doom install --env
         else
-          # Doom est installé -> toujours sync pour s'assurer que tout est à jour
+          # Doom is installed -> always sync to keep things up to date
           $DRY_RUN_CMD echo "Syncing Doom Emacs..."
           $DRY_RUN_CMD $HOME/.emacs.d/bin/doom sync
         fi
         
-        # Vérifier si doom upgrade est nécessaire (dernier upgrade > 30 jours)
+        # Check whether a Doom upgrade reminder is needed (last upgrade > 30 days)
         UPGRADE_MARKER="$HOME/.emacs.d/.last-doom-upgrade"
         DAYS_THRESHOLD=30
         
@@ -150,7 +150,7 @@
             echo ""
           fi
         else
-          # Créer le fichier marker si c'est la première fois
+          # Create the marker file on first run
           $DRY_RUN_CMD date +%s > "$UPGRADE_MARKER"
         fi
       '';
