@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
-  fonts.packages = with pkgs; [
-    emacs-all-the-icons-fonts
-    nerd-fonts.fira-code
-    jetbrains-mono
-  ];
+{ pkgs, ... }:
+let
+  fontData = import ../data/fonts.nix { inherit pkgs; };
+in {
+  fonts.packages = fontData.fontPackages;
 }

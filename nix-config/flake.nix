@@ -41,6 +41,7 @@
             ./modules/core
             ./modules/apps
             ./modules/users
+            ./modules/macos/defaults.nix
             ./hosts/emacs
             home-manager.darwinModules.home-manager
             mac-app-util.darwinModules.default

@@ -1,4 +1,7 @@
-{ config, pkgs, inputs, username, ... }: {
+{ config, pkgs, inputs, username, ... }:
+let
+  caskData = import ../data/homebrew-casks.nix;
+in {
   nix-homebrew = {
     enable = true;
     user = username;
@@ -19,21 +22,7 @@
     brews = [
     ];
     
-    casks = [
-      "visual-studio-code@insiders"
-      "visual-studio-code"
-      "adguard"
-      "altserver"
-      "microsoft-word"
-      "microsoft-excel"
-      "microsoft-powerpoint"
-      "portfolioperformance"
-      #"telegram"
-      "orbstack"
-      "ProtonVPN"
-      "pearcleaner"
-      "keepingyouawake"
-    ];
+    casks = caskData.casks;
     
     masApps = {
       #"Amphetamine" = 937984704;  # App to keep your Mac awake

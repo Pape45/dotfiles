@@ -12,10 +12,8 @@
 
       home.sessionPath = [
         "$HOME/.emacs.d/bin"
-        "${pkgs.texliveFull}/bin"
         "$HOME/development/flutter/bin"
         "$HOME/.gem/ruby/3.3.0/bin"
-        "${pkgs.cocoapods}/bin"
         "/usr/local/go/bin"
         "$HOME/.pub-cache/bin"
       ];
@@ -33,6 +31,12 @@
             email = "66137298+Pape45@users.noreply.github.com";
           };
           core.excludesfile = "~/.gitignore_global";
+        };
+        extraConfig = {
+          core.editor = "vim";
+          pull.rebase = true;
+          init.defaultBranch = "main";
+          rebase.autostash = true;
         };
       };
 
