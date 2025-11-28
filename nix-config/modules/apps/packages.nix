@@ -11,7 +11,6 @@
     temurin-jre-bin
     brave
     utm
-    pipenv
     python313
     python313Packages.pip
     python313Packages.isort
@@ -25,26 +24,25 @@
     monitorcontrol
     tree
     _7zz
-    cargo
-    rustc
     cmake
     libtool
     imagemagick
     ghostscript
     wget
     aria2
-    qbittorrent
     obsidian
     texliveFull
     vlc-bin-universal
-    git
+    iina
     biber
-    repomix
     ruby
     cocoapods
     gradle
-    #opencode
     gnutar
     pigz
+    #pipenv
+    #repomix
+    #opencode
+    #qbittorrent
   ];
 }

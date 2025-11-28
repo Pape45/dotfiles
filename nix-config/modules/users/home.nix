@@ -23,14 +23,15 @@
       home.sessionVariables = {
         LANG = "en_US.UTF-8";
         LC_ALL = "en_US.UTF-8";
-        CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
       };
 
       programs.git = {
         enable = true;
-        userName = "Pape Mamadou Diagne";
-        userEmail = "66137298+Pape45@users.noreply.github.com";
-        extraConfig = {
+        settings = {
+          user = {
+            name = "Pape Mamadou Diagne";
+            email = "66137298+Pape45@users.noreply.github.com";
+          };
           core.excludesfile = "~/.gitignore_global";
         };
       };
@@ -87,11 +88,40 @@
           recursive = true;
           onChange = ''
             export PATH="${pkgs.emacs}/bin:${pkgs.git}/bin:$HOME/.emacs.d/bin:$PATH"
-            $HOME/.emacs.d/bin/doom sync
-            $HOME/.emacs.d/bin/doom env
+            if [ -x "$HOME/.emacs.d/bin/doom" ]; then
+              echo "Synchronizing Doom Emacs configuration..."
+              $HOME/.emacs.d/bin/doom sync
+              $HOME/.emacs.d/bin/doom env
+            fi
           '';
         };
       }; 
+
+      home.activation.doomEmacs = inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
+        export PATH="${pkgs.emacs}/bin:${pkgs.git}/bin:$HOME/.emacs.d/bin:$PATH"
+        
+        # Supprimer .emacs.d si ce n'est pas Doom
+        if [ -d "$HOME/.emacs.d" ] && [ ! -d "$HOME/.emacs.d/.git" ]; then
+          $DRY_RUN_CMD echo "Removing non-Doom .emacs.d directory..."
+          $DRY_RUN_CMD rm -rf "$HOME/.emacs.d"
+        fi
+        
+        # Clone Doom Emacs si absent
+        if [ ! -d "$HOME/.emacs.d/.git" ]; then
+          $DRY_RUN_CMD echo "Cloning Doom Emacs..."
+          $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME/.emacs.d"
+        fi
+        
+        # Installer Doom si jamais initialisé
+        if [ ! -d "$HOME/.emacs.d/.local/etc/@" ]; then
+          $DRY_RUN_CMD echo "Installing Doom Emacs..."
+          $DRY_RUN_CMD yes | $HOME/.emacs.d/bin/doom install --env
+        else
+          # Doom est installé -> toujours sync pour s'assurer que tout est à jour
+          $DRY_RUN_CMD echo "Syncing Doom Emacs..."
+          $DRY_RUN_CMD $HOME/.emacs.d/bin/doom sync
+        fi
+      '';
     };
   };
 }

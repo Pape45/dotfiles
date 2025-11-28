@@ -29,9 +29,9 @@
       "microsoft-powerpoint"
       "portfolioperformance"
       #"telegram"
-      #"tor-browser"
       "orbstack"
       "ProtonVPN"
+      "pearcleaner"
     ];
     
     masApps = {
