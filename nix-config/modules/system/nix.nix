@@ -8,7 +8,6 @@
 
   nix.settings = {
     max-jobs = "auto";
-    download-buffer-size = 21474836480;
   };
 
   nix.optimise.automatic = true;

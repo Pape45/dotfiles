@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    mac-app-util.url = "github:hraban/mac-app-util";
+    # mac-app-util.url = "github:hraban/mac-app-util";
     
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     
@@ -29,7 +29,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, mac-app-util, nix-homebrew, homebrew-core, homebrew-cask, ... }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, ... }:
     let
       username = "papemamadoudiagne";
     in {
@@ -44,7 +44,7 @@
             ./modules/macos/defaults.nix
             ./hosts/emacs
             home-manager.darwinModules.home-manager
-            mac-app-util.darwinModules.default
+            # mac-app-util.darwinModules.default
             nix-homebrew.darwinModules.nix-homebrew
           ];
         };

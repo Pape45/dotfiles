@@ -4,7 +4,7 @@
     useUserPackages = true;
     users.${username} = { pkgs, ... }: {
       imports = [
-        inputs.mac-app-util.homeManagerModules.default
+        # inputs.mac-app-util.homeManagerModules.default
       ];
       home.stateVersion = "24.11";
       home.username = username;
@@ -90,6 +90,7 @@
         ".doom.d" = {
           source = ../../../doom.d;
           recursive = true;
+          force = true;
           onChange = ''
             export PATH="${pkgs.emacs}/bin:${pkgs.git}/bin:$HOME/.emacs.d/bin:$PATH"
             if [ -x "$HOME/.emacs.d/bin/doom" ]; then
