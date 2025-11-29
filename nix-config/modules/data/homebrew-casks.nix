@@ -16,5 +16,7 @@
     "discord"
     "duckduckgo"
     "stremio"
+    "arc"
+    "whatsapp"
   ];
 }

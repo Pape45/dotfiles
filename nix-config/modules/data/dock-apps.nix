@@ -13,6 +13,5 @@
     "${pkgs.emacs}/Applications/Emacs.app"
     "${pkgs.anki-bin}/Applications/Anki.app"
     "${pkgs.obsidian}/Applications/Obsidian.app"
-    "${pkgs.brave}/Applications/Brave Browser.app"
   ];
 }

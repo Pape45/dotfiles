@@ -40,6 +40,8 @@
     gradle
     gnutar
     pigz
+    antigravity
+    brave
     #pipenv
     #repomix
     #opencode
