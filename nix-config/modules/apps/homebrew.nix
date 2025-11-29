@@ -25,7 +25,7 @@ in {
     casks = caskData.casks;
     
     masApps = {
-      #"Amphetamine" = 937984704;  # App to keep your Mac awake
+      "CrystalFetch ISO Downloader" = 6454431289;
     };
     
     onActivation = {

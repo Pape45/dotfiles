@@ -8,10 +8,13 @@
     "microsoft-excel"
     "microsoft-powerpoint"
     "portfolioperformance"
-    # "telegram"
+    "telegram"
     "orbstack"
     "ProtonVPN"
     "pearcleaner"
     "keepingyouawake"
+    "discord"
+    "duckduckgo"
+    "stremio"
   ];
 }
