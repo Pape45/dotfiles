@@ -42,6 +42,8 @@
     pigz
     antigravity
     brave
+    swi-prolog
+    #darwin.xcodes
     #pipenv
     #repomix
     #opencode
