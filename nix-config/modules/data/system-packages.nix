@@ -43,6 +43,7 @@
     antigravity
     brave
     swi-prolog
+    qbittorrent
     #darwin.xcodes
     #pipenv
     #repomix

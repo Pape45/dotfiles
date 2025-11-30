@@ -26,6 +26,7 @@ in {
     
     masApps = {
       "CrystalFetch ISO Downloader" = 6454431289;
+      "Perplexity: Ask Anything" = 6714467650;
     };
     
     onActivation = {

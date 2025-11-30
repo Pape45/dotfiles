@@ -18,5 +18,6 @@
     "stremio"
     "arc"
     "whatsapp"
+    "google-chrome"
   ];
 }
