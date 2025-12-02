@@ -3,5 +3,6 @@
     ./packages.nix
     ./emacs.nix
     ./homebrew.nix
+    ./postgresql.nix
   ];
 }
