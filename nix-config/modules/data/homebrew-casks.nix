@@ -19,6 +19,7 @@
     "arc"
     "whatsapp"
     "google-chrome"
+    "microsoft-teams"
     "logi-options+"
   ];
 }
