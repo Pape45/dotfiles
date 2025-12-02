@@ -6,8 +6,8 @@ in {
     dock = {
       show-recents = false; # no recent apps in Dock
       mru-spaces = false; # keep Spaces order stable
-      tilesize = 60;
-      largesize = 80;
+      tilesize = 50;
+      largesize = 70;
       wvous-bl-corner = 1; # disable hot corners
       wvous-br-corner = 1;
       wvous-tl-corner = 1;
