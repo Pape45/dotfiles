@@ -3,19 +3,12 @@
     enable = true;
     package = pkgs.postgresql_16;
     
-    # Créer automatiquement des bases de données si nécessaire
+    # Not yet supported by nix darwin
     ensureDatabases = [
-      # "mydb"  # Ajoutez vos bases ici
     ];
     
-    # Créer automatiquement des utilisateurs si nécessaire
+    # Not yet supported by nix darwin
     ensureUsers = [
-      # {
-      #   name = "myuser";
-      #   ensurePermissions = {
-      #     "DATABASE mydb" = "ALL PRIVILEGES";
-      #   };
-      # }
     ];
     
     # Configuration optionnelle
