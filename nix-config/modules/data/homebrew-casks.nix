@@ -19,5 +19,6 @@
     "arc"
     "whatsapp"
     "google-chrome"
+    "logi-options+"
   ];
 }

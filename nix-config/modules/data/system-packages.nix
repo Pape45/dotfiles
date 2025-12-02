@@ -44,6 +44,7 @@
     brave
     swi-prolog
     qbittorrent
+    chatgpt
     #darwin.xcodes
     #pipenv
     #repomix
