@@ -21,6 +21,7 @@ in {
     
     brews = [
       "neonctl"
+      "vercel-cli"
     ];
     
     casks = caskData.casks;

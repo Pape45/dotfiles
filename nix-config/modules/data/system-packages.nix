@@ -49,6 +49,7 @@
     wrangler
     k6
     dbeaver-bin
+    zed-editor
     #darwin.xcodes
     #pipenv
     #repomix
