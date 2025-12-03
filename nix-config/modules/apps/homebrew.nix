@@ -20,6 +20,7 @@ in {
     taps = builtins.attrNames config.nix-homebrew.taps;
     
     brews = [
+      "neonctl"
     ];
     
     casks = caskData.casks;

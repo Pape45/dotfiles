@@ -45,6 +45,10 @@
     swi-prolog
     qbittorrent
     chatgpt
+    postgresql_16
+    wrangler
+    k6
+    dbeaver-bin
     #darwin.xcodes
     #pipenv
     #repomix
