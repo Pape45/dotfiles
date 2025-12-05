@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 let
   dockApps = (import ../data/dock-apps.nix { inherit pkgs; }).persistentApps;
 in {
@@ -20,7 +20,7 @@ in {
     };
 
     screencapture = {
-      location = "/Users/papemamadoudiagne/Downloads";
+      location = "/Users/${username}/Downloads";
     };
 
     finder = {

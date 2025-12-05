@@ -4,7 +4,7 @@
     useUserPackages = true;
     users.${username} = { pkgs, ... }: {
       imports = [
-        # inputs.mac-app-util.homeManagerModules.default
+        # inputs..s-util.homeManagerModules.default
       ];
       home.stateVersion = "24.11";
       home.username = username;
@@ -12,10 +12,10 @@
 
       home.sessionPath = [
         "$HOME/.emacs.d/bin"
-        "$HOME/development/flutter/bin"
-        "$HOME/.gem/ruby/3.3.0/bin"
-        "/usr/local/go/bin"
-        "$HOME/.pub-cache/bin"
+        #"$HOME/development/flutter/bin"
+        #"$HOME/.gem/ruby/3.3.0/bin"
+        #"/usr/local/go/bin"
+        #"$HOME/.pub-cache/bin"
       ];
 
       home.sessionVariables = {
@@ -37,6 +37,7 @@
           pull.rebase = true;
           init.defaultBranch = "main";
           rebase.autostash = true;
+          push.autoSetupRemote = true;
         };
       };
 
