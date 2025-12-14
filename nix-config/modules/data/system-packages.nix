@@ -40,7 +40,6 @@
     gradle
     gnutar
     pigz
-    antigravity
     brave
     swi-prolog
     qbittorrent
@@ -49,7 +48,6 @@
     wrangler
     k6
     dbeaver-bin
-    zed-editor
     #darwin.xcodes
     #pipenv
     #repomix
