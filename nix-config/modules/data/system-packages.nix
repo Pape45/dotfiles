@@ -48,6 +48,7 @@
     wrangler
     k6
     dbeaver-bin
+    antigravity
     #darwin.xcodes
     #pipenv
     #repomix
