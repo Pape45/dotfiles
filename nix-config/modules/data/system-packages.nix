@@ -49,6 +49,7 @@
     k6
     dbeaver-bin
     antigravity
+    gemini-cli
     #darwin.xcodes
     #pipenv
     #repomix
