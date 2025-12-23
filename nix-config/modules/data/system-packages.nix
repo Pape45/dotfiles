@@ -7,8 +7,8 @@
     anki-bin
     ffmpeg_6
     yt-dlp
-    temurin-bin
-    temurin-jre-bin
+    javaPackages.compiler.temurin-bin.jre-21
+    javaPackages.compiler.temurin-bin.jdk-21
     brave
     utm
     python313

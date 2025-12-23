@@ -50,10 +50,11 @@ in {
     };
 
     NSGlobalDomain = {
-      InitialKeyRepeat = 15;
-      KeyRepeat = 2;
-      "com.apple.trackpad.trackpadCornerClickBehavior" = 1;
-      "com.apple.mouse.tapBehavior" = 1;
+      InitialKeyRepeat = 16;
+      KeyRepeat = 4;
+      NSAutomaticSpellingCorrectionEnabled = false;
+      #"com.apple.trackpad.trackpadCornerClickBehavior" = 1;
+      #"com.apple.mouse.tapBehavior" = 1;
     };
     
     CustomUserPreferences = {
