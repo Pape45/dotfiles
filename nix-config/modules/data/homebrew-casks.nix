@@ -21,5 +21,7 @@
     "google-chrome"
     "microsoft-teams"
     "logi-options+"
+    "heroic"
+    "prefs-editor"
   ];
 }

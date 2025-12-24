@@ -50,6 +50,7 @@
     dbeaver-bin
     antigravity
     gemini-cli
+    firefox
     #darwin.xcodes
     #pipenv
     #repomix

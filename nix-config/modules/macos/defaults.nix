@@ -61,6 +61,9 @@ in {
       "com.apple.Safari" = {
         ShowOverlayStatusBar = true;
         AutoOpenSafeDownloads = false;
+        IncludeDevelopMenu = true;
+        WebKitDeveloperExtrasEnabledPreferenceKey = true;
+        "WebKitPreferences.developerExtrasEnabled" = true;
       };
     };
 
