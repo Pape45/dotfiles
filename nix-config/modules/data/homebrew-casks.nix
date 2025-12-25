@@ -7,7 +7,6 @@
     "microsoft-word"
     "microsoft-excel"
     "microsoft-powerpoint"
-    "portfolioperformance"
     "telegram"
     "orbstack"
     "ProtonVPN"
@@ -23,5 +22,6 @@
     "logi-options+"
     "heroic"
     "prefs-editor"
+    "crossover"
   ];
 }

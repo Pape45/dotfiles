@@ -51,10 +51,10 @@
     antigravity
     gemini-cli
     firefox
+    opencode
     #darwin.xcodes
     #pipenv
     #repomix
-    #opencode
     #qbittorrent
   ];
 }
