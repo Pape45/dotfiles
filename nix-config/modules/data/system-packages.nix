@@ -52,6 +52,7 @@
     gemini-cli
     firefox
     opencode
+    mos
     #darwin.xcodes
     #pipenv
     #repomix
