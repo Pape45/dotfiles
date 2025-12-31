@@ -53,6 +53,9 @@
     firefox
     opencode
     mos
+    the-unarchiver
+    rustup
+    go
     #darwin.xcodes
     #pipenv
     #repomix
