@@ -24,6 +24,7 @@
     monitorcontrol
     tree
     _7zz
+    p7zip
     cmake
     libtool
     imagemagick

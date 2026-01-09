@@ -23,6 +23,7 @@ in {
       "neonctl"
       "vercel-cli"
       "mole"
+      "poppler"
     ];
     
     casks = caskData.casks;
