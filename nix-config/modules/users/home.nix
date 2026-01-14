@@ -85,6 +85,16 @@
         };
 
         syntaxHighlighting.enable = true;
+
+        initExtra = ''
+          export PATH="$HOME/.local/bin:$PATH"
+          alias ll="ls -la"
+          alias codex1='CODEX_HOME=$HOME/.codex-accounts/acc1 codex --dangerously-bypass-approvals-and-sandbox'
+          alias codex2='CODEX_HOME=$HOME/.codex-accounts/acc2 codex --dangerously-bypass-approvals-and-sandbox'
+          alias codex3='CODEX_HOME=$HOME/.codex-accounts/acc3 codex --dangerously-bypass-approvals-and-sandbox'
+          alias codex4='CODEX_HOME=$HOME/.codex-accounts/acc4 codex --dangerously-bypass-approvals-and-sandbox'
+          alias codex5='CODEX_HOME=$HOME/.codex-accounts/acc5 codex --dangerously-bypass-approvals-and-sandbox'
+        '';
       };
 
       home.file = {
