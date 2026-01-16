@@ -39,6 +39,9 @@
 
       macUsername = "papemamadoudiagne";
       vpsUsername = "ubuntu";
+      # Your VPS reports `aarch64-linux`. If you migrate to an x86_64 VPS later,
+      # switch this to "x86_64-linux".
+      vpsSystem = "aarch64-linux";
     in {
       darwinConfigurations = {
         emacs = nix-darwin.lib.darwinSystem {
@@ -60,9 +63,7 @@
       # Standalone Home Manager for non-NixOS machines (e.g. Ubuntu VPS).
       homeConfigurations = {
         "ubuntu@papevnic" = home-manager.lib.homeManagerConfiguration {
-          # Evaluate this on the target machine so we pick the correct arch
-          # (your VPS is aarch64-linux, not x86_64-linux).
-          pkgs = mkPkgs builtins.currentSystem;
+          pkgs = mkPkgs vpsSystem;
           extraSpecialArgs = { inherit inputs; username = vpsUsername; };
           modules = [
             ./modules/home/common.nix

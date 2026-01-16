@@ -37,7 +37,7 @@ nix flake update --commit-lock-file
 nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
 ```
 
-Note: this config auto-detects the VPS architecture when evaluated on the VPS (e.g. `aarch64-linux` vs `x86_64-linux`). Run the command on the server itself.
+Note: the VPS system arch is set in `flake.nix` (`vpsSystem`). If you ever change VPS CPU arch, update that value (e.g. `aarch64-linux` ↔ `x86_64-linux`).
 
 ## What to edit (so I don’t get lost)
 
