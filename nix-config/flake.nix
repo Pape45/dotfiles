@@ -61,16 +61,22 @@
       };
 
       # Standalone Home Manager for non-NixOS machines (e.g. Ubuntu VPS).
-      homeConfigurations = {
-        "ubuntu@pipavnic" = home-manager.lib.homeManagerConfiguration {
-          pkgs = mkPkgs vpsSystem;
-          extraSpecialArgs = { inherit inputs; username = vpsUsername; };
-          modules = [
-            ./modules/home/common.nix
-            ./modules/home/server.nix
-            ./hosts/pipavnic/home.nix
-          ];
+      homeConfigurations =
+        let
+          vpsHome = home-manager.lib.homeManagerConfiguration {
+            pkgs = mkPkgs vpsSystem;
+            extraSpecialArgs = { inherit inputs; username = vpsUsername; };
+            modules = [
+              ./modules/home/common.nix
+              ./modules/home/server.nix
+            ];
+          };
+        in {
+          # Use this so you never have to update commands when the VPS hostname changes.
+          vps = vpsHome;
+
+          # Convenience alias for the current VPS name.
+          "ubuntu@pipavnic" = vpsHome;
         };
-      };
     };
 }

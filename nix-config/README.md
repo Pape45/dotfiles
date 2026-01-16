@@ -7,7 +7,8 @@ This repo has two separate targets so I don’t mix macOS-only stuff (Homebrew, 
 
 The entrypoints are:
 - `darwinConfigurations.emacs`
-- `homeConfigurations."ubuntu@pipavnic"`
+- `homeConfigurations.vps` (recommended)
+- `homeConfigurations."ubuntu@pipavnic"` (alias)
 
 ## Quick commands (copy/paste)
 
@@ -27,14 +28,14 @@ sudo -i darwin-rebuild switch --flake .#emacs
 ### Ubuntu VPS (apply Home Manager)
 ```sh
 cd ~/dotfiles/nix-config
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
+nix run github:nix-community/home-manager/master -- switch --flake .#vps
 ```
 
 ### Ubuntu VPS (update inputs)
 ```sh
 cd ~/dotfiles/nix-config
 nix flake update --commit-lock-file
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
+nix run github:nix-community/home-manager/master -- switch --flake .#vps
 ```
 
 Note: the VPS system arch is set in `flake.nix` (`vpsSystem`). If you ever change VPS CPU arch, update that value (e.g. `aarch64-linux` ↔ `x86_64-linux`).
@@ -92,7 +93,7 @@ Edit these when the change should only affect the server:
 
 ```sh
 cd ~/dotfiles/nix-config
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
+nix run github:nix-community/home-manager/master -- switch --flake .#vps
 ```
 
 ### Add a package on macOS
@@ -132,7 +133,7 @@ git clone https://github.com/<you>/<repo>.git ~/dotfiles
 3) Apply Home Manager:
 ```sh
 cd ~/dotfiles/nix-config
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
+nix run github:nix-community/home-manager/master -- switch --flake .#vps
 ```
 
 4) Make Zsh the login shell (Ubuntu best practice; Home Manager will manage the config, not the system package):
