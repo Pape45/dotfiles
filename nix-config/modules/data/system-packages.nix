@@ -24,8 +24,11 @@
     monitorcontrol
     tree
     _7zz
+    gitleaks
+    semgrep
     p7zip
     cmake
+    trivy
     libtool
     imagemagick
     ghostscript
