@@ -1,5 +1,5 @@
 {
-  description = "Pape's Darwin System Configuration";
+  description = "Pape's macOS + VPS (Home Manager) configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -31,12 +31,19 @@
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, ... }:
     let
-      username = "papemamadoudiagne";
+      mkPkgs = system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+      macUsername = "papemamadoudiagne";
+      vpsUsername = "ubuntu";
     in {
       darwinConfigurations = {
         emacs = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          specialArgs = { inherit inputs username; };
+          specialArgs = { inherit inputs; username = macUsername; };
           modules = [
             ./modules/core
             ./modules/apps
@@ -46,6 +53,19 @@
             home-manager.darwinModules.home-manager
             # mac-app-util.darwinModules.default
             nix-homebrew.darwinModules.nix-homebrew
+          ];
+        };
+      };
+
+      # Standalone Home Manager for non-NixOS machines (e.g. Ubuntu VPS).
+      homeConfigurations = {
+        "ubuntu@papevnic" = home-manager.lib.homeManagerConfiguration {
+          pkgs = mkPkgs "x86_64-linux";
+          extraSpecialArgs = { inherit inputs; username = vpsUsername; };
+          modules = [
+            ./modules/home/common.nix
+            ./modules/home/server.nix
+            ./hosts/papevnic/home.nix
           ];
         };
       };
