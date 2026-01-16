@@ -11,6 +11,7 @@
     btop
     curl
     openscap
+    scap-security-guide
     caddy
     fd
     fzf
