@@ -60,7 +60,9 @@
       # Standalone Home Manager for non-NixOS machines (e.g. Ubuntu VPS).
       homeConfigurations = {
         "ubuntu@papevnic" = home-manager.lib.homeManagerConfiguration {
-          pkgs = mkPkgs "x86_64-linux";
+          # Evaluate this on the target machine so we pick the correct arch
+          # (your VPS is aarch64-linux, not x86_64-linux).
+          pkgs = mkPkgs builtins.currentSystem;
           extraSpecialArgs = { inherit inputs; username = vpsUsername; };
           modules = [
             ./modules/home/common.nix

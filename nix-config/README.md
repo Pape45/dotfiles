@@ -1,88 +1,150 @@
 # Nix flake: macOS (nix-darwin) + Ubuntu VPS (Home Manager)
 
-Single repo that cleanly separates:
-- macOS system config via `nix-darwin`
-- Ubuntu VPS user env via standalone Home Manager (no `nix-darwin`, no Doom Emacs)
+This repo has two separate targets so I don’t mix macOS-only stuff (Homebrew, defaults, TouchID, GUI apps) with server needs (minimal, stable shell + reproducible dev envs):
 
-## Layout
+- **macOS**: system configuration via `nix-darwin` + Home Manager
+- **Ubuntu VPS**: user environment via **standalone Home Manager** (no `nix-darwin`, no Doom Emacs)
 
-- `flake.nix` – entrypoint, defines:
-  - `darwinConfigurations.emacs`
-  - `homeConfigurations."ubuntu@papevnic"`
-- `hosts/emacs/` – host-level bits (name/home).
-- `hosts/papevnic/` – VPS Home Manager host bits (username/home).
-- `modules/core/` – base system (system.nix), fonts, security, nix settings (imports `modules/system/nix.nix`).
-- `modules/macos/defaults.nix` – all `system.defaults` (Dock/Finder/trackpad/login/etc.).
-- `modules/apps/` – packages, Homebrew, Emacs extras.
-- `modules/home/` – Home Manager modules (shared, darwin-only, server-only).
-- `modules/users/home.nix` – wires Home Manager into nix-darwin.
-- `modules/data/` – shared lists (system packages, fonts, Dock apps, Homebrew casks).
-- `modules/system/nix.nix` – nix daemon + GC/optimise settings.
+The entrypoints are:
+- `darwinConfigurations.emacs`
+- `homeConfigurations."ubuntu@papevnic"`
 
-## How to use
+## Quick commands (copy/paste)
 
-### macOS
-
+### macOS (rebuild)
 ```sh
-# install nix
-curl -L https://install.determinate.systems/nix | sh
-
-# update inputs
-nix flake update --commit-lock-file
-
-# build/switch
-sudo -i darwin-rebuild switch --flake ~/dotfiles/nix-config
+cd ~/dotfiles/nix-config
+sudo -i darwin-rebuild switch --flake .#emacs
 ```
 
-If the repo is dirty, add new files (`modules/data/*`, `modules/macos/defaults.nix`, etc.) before rebuilding so the flake can see them.
+### macOS (update inputs)
+```sh
+cd ~/dotfiles/nix-config
+nix flake update --commit-lock-file
+sudo -i darwin-rebuild switch --flake .#emacs
+```
 
-### Ubuntu VPS (`ubuntu@papevnic`)
+### Ubuntu VPS (apply Home Manager)
+```sh
+cd ~/dotfiles/nix-config
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+```
 
-1) Install Nix (daemon/multi-user is recommended on servers):
+### Ubuntu VPS (update inputs)
+```sh
+cd ~/dotfiles/nix-config
+nix flake update --commit-lock-file
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+```
+
+Note: this config auto-detects the VPS architecture when evaluated on the VPS (e.g. `aarch64-linux` vs `x86_64-linux`). Run the command on the server itself.
+
+## What to edit (so I don’t get lost)
+
+### Shared (macOS + VPS)
+
+Edit these when I want the “same shell” and shared CLI behavior on both machines:
+
+- `modules/home/common.nix`
+  - Zsh config (`programs.zsh.*`), aliases (`home.shellAliases`)
+  - Git config (`programs.git.*`)
+  - `direnv` + `nix-direnv` (recommended for per-project dev envs on the VPS)
+
+### macOS-only (nix-darwin)
+
+Edit these when the change is specifically about the Mac system:
+
+- `modules/macos/defaults.nix`
+  - Dock/Finder/trackpad/login/etc (`system.defaults.*`)
+
+- `modules/apps/homebrew.nix` and `modules/data/homebrew-casks.nix`
+  - Homebrew taps/brews/casks + MAS apps
+
+- `modules/apps/packages.nix` and `modules/data/system-packages.nix`
+  - macOS system packages (`environment.systemPackages`)
+
+- `modules/apps/emacs.nix`
+  - Emacs packages on macOS (`environment.systemPackages`), Doom dependencies, etc.
+
+- `modules/home/darwin.nix`
+  - macOS user metadata (`/Users/...`) and mac-only session paths
+
+- `modules/home/doom.nix`
+  - Doom Emacs activation + syncing (macOS only by design)
+
+### Ubuntu VPS-only (Home Manager)
+
+Edit these when the change should only affect the server:
+
+- `modules/home/server.nix`
+  - VPS packages (`home.packages`)
+  - VPS tools toggles (e.g. `programs.tmux.enable = true;`)
+
+- `hosts/papevnic/home.nix`
+  - VPS username/home (`/home/...`) and Home Manager stateVersion
+
+## How to do common tasks
+
+### Add a package on the Ubuntu VPS
+
+1) Add it to `modules/home/server.nix` under `home.packages`.
+2) Apply on the VPS:
 
 ```sh
-# official installer
-sh <(curl -L https://nixos.org/nix/install) --daemon
+cd ~/dotfiles/nix-config
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+```
 
-# ensure flakes are enabled for all users (daemon install)
+### Add a package on macOS
+
+Pick the right place:
+- If it’s a normal CLI tool: add it in `modules/data/system-packages.nix` (then rebuild).
+- If it’s Emacs/Doom-related: add it in `modules/apps/emacs.nix` (then rebuild).
+
+Then:
+```sh
+cd ~/dotfiles/nix-config
+sudo -i darwin-rebuild switch --flake .#emacs
+```
+
+### Add another VPS host later
+
+1) Create `hosts/<new-host>/home.nix` with username + homeDirectory.
+2) Add a new entry under `homeConfigurations` in `flake.nix`.
+3) Apply with `--flake .#<user@host>`.
+
+## VPS bootstrap (first install)
+
+On the VPS (`ubuntu@papevnic`):
+
+1) Install Nix (daemon/multi-user is recommended on servers):
+```sh
+sh <(curl -L https://nixos.org/nix/install) --daemon
 sudo mkdir -p /etc/nix
 echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf
 ```
 
-2) Clone your dotfiles repo on the VPS (or `rsync` it):
-
+2) Clone dotfiles:
 ```sh
 git clone https://github.com/<you>/<repo>.git ~/dotfiles
 ```
 
-3) Apply the Home Manager config:
-
+3) Apply Home Manager:
 ```sh
-nix run github:nix-community/home-manager/master -- switch --flake ~/dotfiles/nix-config#ubuntu@papevnic
+cd ~/dotfiles/nix-config
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
 ```
 
-4) Zsh login shell (recommended on Ubuntu):
-
+4) Make Zsh the login shell (Ubuntu best practice; Home Manager will manage the config, not the system package):
 ```sh
 sudo apt-get update && sudo apt-get install -y zsh
 chsh -s /usr/bin/zsh ubuntu
 ```
 
-Re-login (or `exec zsh`) and you should get the same Zsh config as on macOS.
-
-## Homebrew policy
-
-Currently `homebrew.onActivation = { autoUpdate = true; upgrade = true; cleanup = "zap"; }`. This keeps Homebrew in sync with the declared casks but makes rebuilds less deterministic. Flip these to `false/false/"none"` if you want idempotent rebuilds and manage `brew upgrade` manually.
+Re-login (or `exec zsh`).
 
 ## Notes
 
-- Terminal app font still needs manual tweaking (macOS Terminal doesn’t expose defaults cleanly).
-- Touch ID for sudo is enabled via `security.pam.services.sudo_local.touchIdAuth = true;`.
-- For VPS projects, prefer `direnv` + `use flake` per-repo (this setup enables `nix-direnv`).
-
-## References
-
-- [nix](https://nixos.org/manual/nix/stable/)
-- [nix-darwin manual](https://daiderd.com/nix-darwin/manual/index.html)
-- [Home Manager](https://nix-community.github.io/home-manager/)
-- [Flakes wiki](https://nixos.wiki/wiki/Flakes)
+- If the repo is dirty, add new files to git before rebuilding so flakes can see them.
+- macOS Touch ID for sudo is enabled via `security.pam.services.sudo_local.touchIdAuth = true;`.
+- Homebrew `onActivation` is currently non-idempotent (autoUpdate/upgrade/cleanup). Set to `false/false/"none"` if I want deterministic rebuilds.
