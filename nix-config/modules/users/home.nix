@@ -86,7 +86,7 @@
 
         syntaxHighlighting.enable = true;
 
-        initExtra = ''
+        initContent = ''
           export PATH="$HOME/.local/bin:$PATH"
           alias ll="ls -la"
           alias codex1='CODEX_HOME=$HOME/.codex-accounts/acc1 codex --dangerously-bypass-approvals-and-sandbox'
