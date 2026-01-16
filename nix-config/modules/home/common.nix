@@ -69,6 +69,13 @@
 
     syntaxHighlighting.enable = true;
 
+    # Home Manager currently generates `source $ZSH/oh-my-zsh.sh`. On fresh servers
+    # `$ZSH` isn't set unless you installed oh-my-zsh manually. Set it explicitly
+    # so the theme/plugins work out of the box.
+    initExtraFirst = ''
+      export ZSH="${pkgs.oh-my-zsh}/share/oh-my-zsh"
+    '';
+
     initContent = ''
       export PATH="$HOME/.local/bin:$PATH"
     '';
