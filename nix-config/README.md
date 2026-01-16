@@ -21,8 +21,7 @@ sudo -i darwin-rebuild switch --flake .#emacs
 ### macOS (update inputs)
 ```sh
 cd ~/dotfiles/nix-config
-nix flake update --commit-lock-file
-sudo -i darwin-rebuild switch --flake .#emacs
+nix flake update --commit-lock-file && sudo -i darwin-rebuild switch --flake .#emacs
 ```
 
 ### Ubuntu VPS (apply Home Manager)
