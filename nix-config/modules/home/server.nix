@@ -21,6 +21,17 @@
     wget
     zip
     fail2ban
+    nodejs_22
+    pnpm
+    uv
+    gh
+    vim
+    wrangler
+    k6
+    postgresql_16
+    gnutar
+    trivy
+    semgrep
   ];
 
   programs.tmux.enable = true;
