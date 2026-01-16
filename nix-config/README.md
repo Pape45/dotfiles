@@ -138,8 +138,7 @@ nix run github:nix-community/home-manager/master -- switch --flake .#vps
 
 4) Make Zsh the login shell (Ubuntu best practice; Home Manager will manage the config, not the system package):
 ```sh
-sudo apt-get update && sudo apt-get install -y zsh
-chsh -s /usr/bin/zsh ubuntu
+chsh ubuntu -> path /home/ubuntu/.nix-profile/bin/zsh
 ```
 
 Re-login (or `exec zsh`).

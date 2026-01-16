@@ -8,21 +8,19 @@
   home.homeDirectory = "/home/${username}";
 
   home.packages = with pkgs; [
-    bat
     btop
     curl
-    eza
     fd
     fzf
     git
     htop
     jq
     ripgrep
-    tmux
     tree
     unzip
     wget
     zip
+    fail2ban
   ];
 
   programs.tmux.enable = true;
