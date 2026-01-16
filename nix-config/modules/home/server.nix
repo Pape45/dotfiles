@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     btop
     curl
+    openscap
     caddy
     fd
     fzf
