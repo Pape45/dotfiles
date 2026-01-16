@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     btop
     curl
+    caddy
     fd
     fzf
     git
