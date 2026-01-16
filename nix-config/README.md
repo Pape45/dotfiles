@@ -7,7 +7,7 @@ This repo has two separate targets so I don’t mix macOS-only stuff (Homebrew, 
 
 The entrypoints are:
 - `darwinConfigurations.emacs`
-- `homeConfigurations."ubuntu@papevnic"`
+- `homeConfigurations."ubuntu@pipavnic"`
 
 ## Quick commands (copy/paste)
 
@@ -27,14 +27,14 @@ sudo -i darwin-rebuild switch --flake .#emacs
 ### Ubuntu VPS (apply Home Manager)
 ```sh
 cd ~/dotfiles/nix-config
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
 ```
 
 ### Ubuntu VPS (update inputs)
 ```sh
 cd ~/dotfiles/nix-config
 nix flake update --commit-lock-file
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
 ```
 
 Note: the VPS system arch is set in `flake.nix` (`vpsSystem`). If you ever change VPS CPU arch, update that value (e.g. `aarch64-linux` ↔ `x86_64-linux`).
@@ -80,7 +80,7 @@ Edit these when the change should only affect the server:
   - VPS packages (`home.packages`)
   - VPS tools toggles (e.g. `programs.tmux.enable = true;`)
 
-- `hosts/papevnic/home.nix`
+- `hosts/pipavnc/home.nix`
   - VPS username/home (`/home/...`) and Home Manager stateVersion
 
 ## How to do common tasks
@@ -92,7 +92,7 @@ Edit these when the change should only affect the server:
 
 ```sh
 cd ~/dotfiles/nix-config
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
 ```
 
 ### Add a package on macOS
@@ -115,7 +115,7 @@ sudo -i darwin-rebuild switch --flake .#emacs
 
 ## VPS bootstrap (first install)
 
-On the VPS (`ubuntu@papevnic`):
+On the VPS (`ubuntu@pipavnic`):
 
 1) Install Nix (daemon/multi-user is recommended on servers):
 ```sh
@@ -132,7 +132,7 @@ git clone https://github.com/<you>/<repo>.git ~/dotfiles
 3) Apply Home Manager:
 ```sh
 cd ~/dotfiles/nix-config
-nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@papevnic
+nix run github:nix-community/home-manager/master -- switch --flake .#ubuntu@pipavnic
 ```
 
 4) Make Zsh the login shell (Ubuntu best practice; Home Manager will manage the config, not the system package):

@@ -62,13 +62,13 @@
 
       # Standalone Home Manager for non-NixOS machines (e.g. Ubuntu VPS).
       homeConfigurations = {
-        "ubuntu@papevnic" = home-manager.lib.homeManagerConfiguration {
+        "ubuntu@pipavnic" = home-manager.lib.homeManagerConfiguration {
           pkgs = mkPkgs vpsSystem;
           extraSpecialArgs = { inherit inputs; username = vpsUsername; };
           modules = [
             ./modules/home/common.nix
             ./modules/home/server.nix
-            ./hosts/papevnic/home.nix
+            ./hosts/pipavnic/home.nix
           ];
         };
       };
