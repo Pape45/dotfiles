@@ -1,0 +1,28 @@
+{
+  casks = [
+    "visual-studio-code@insiders"
+    "visual-studio-code"
+    "adguard"
+    "safe-exam-browser"
+    "rstudio"
+    "altserver"
+    "microsoft-word"
+    "microsoft-excel"
+    "microsoft-powerpoint"
+    "telegram"
+    "orbstack"
+    "ProtonVPN"
+    "pearcleaner"
+    "keepingyouawake"
+    "discord"
+    "duckduckgo"
+    "stremio"
+    "arc"
+    "whatsapp"
+    "google-chrome"
+    "logi-options+"
+    "prefs-editor"
+    "crossover"
+    "claude"
+  ];
+}
