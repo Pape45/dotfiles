@@ -24,5 +24,6 @@
     "prefs-editor"
     "crossover"
     "claude"
+    "codex-app"
   ];
 }

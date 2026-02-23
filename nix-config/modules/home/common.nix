@@ -76,11 +76,11 @@
 
   home.shellAliases = {
     ll = "ls -la";
-    codex1 = "CODEX_HOME=$HOME/.codex-accounts/acc1 codex --dangerously-bypass-approvals-and-sandbox";
-    codex2 = "CODEX_HOME=$HOME/.codex-accounts/acc2 codex --dangerously-bypass-approvals-and-sandbox";
-    codex3 = "CODEX_HOME=$HOME/.codex-accounts/acc3 codex --dangerously-bypass-approvals-and-sandbox";
-    codex4 = "CODEX_HOME=$HOME/.codex-accounts/acc4 codex --dangerously-bypass-approvals-and-sandbox";
-    codex5 = "CODEX_HOME=$HOME/.codex-accounts/acc5 codex --dangerously-bypass-approvals-and-sandbox";
+    codex1 = "CODEX_HOME=$HOME/.codex-accounts/acc1 /opt/homebrew/bin/codex --dangerously-bypass-approvals-and-sandbox";
+    codex2 = "CODEX_HOME=$HOME/.codex-accounts/acc2 /opt/homebrew/bin/codex --dangerously-bypass-approvals-and-sandbox";
+    codex3 = "CODEX_HOME=$HOME/.codex-accounts/acc3 /opt/homebrew/bin/codex --dangerously-bypass-approvals-and-sandbox";
+    codex4 = "CODEX_HOME=$HOME/.codex-accounts/acc4 /opt/homebrew/bin/codex --dangerously-bypass-approvals-and-sandbox";
+    codex5 = "CODEX_HOME=$HOME/.codex-accounts/acc5 /opt/homebrew/bin/codex --dangerously-bypass-approvals-and-sandbox";
   };
 
   # Best UX for per-project dev envs on the VPS: `direnv` + `use flake`.
