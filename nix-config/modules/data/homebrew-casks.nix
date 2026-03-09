@@ -20,10 +20,8 @@
     "arc"
     "whatsapp"
     "google-chrome"
-    "logi-options+"
     "prefs-editor"
     "crossover"
     "claude"
-    "codex-app"
   ];
 }

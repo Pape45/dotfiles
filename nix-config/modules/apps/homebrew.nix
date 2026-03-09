@@ -24,6 +24,7 @@ in {
       "mole"
       "poppler"
       "r"
+      "agent-browser"
     ];
     
     casks = caskData.casks;
