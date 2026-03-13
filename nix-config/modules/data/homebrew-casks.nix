@@ -1,7 +1,5 @@
 {
   casks = [
-    "visual-studio-code@insiders"
-    "visual-studio-code"
     "adguard"
     "safe-exam-browser"
     "rstudio"

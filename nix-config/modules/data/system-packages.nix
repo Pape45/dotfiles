@@ -63,6 +63,7 @@
     the-unarchiver
     rustup
     go
+    vscode
     #darwin.xcodes
     #pipenv
     #repomix
