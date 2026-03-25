@@ -23,6 +23,7 @@
       rebase.autostash = true;
       push.autoSetupRemote = true;
     };
+    signing.format = "openpgp";
   };
 
   home.file.".gitignore_global".text = ''
@@ -87,5 +88,10 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    package = if pkgs.stdenv.isDarwin then pkgs.direnv.overrideAttrs (old: {
+      env = (old.env or { }) // {
+        CGO_ENABLED = "1";
+      };
+    }) else pkgs.direnv;
   };
 }
