@@ -25,6 +25,9 @@
     uv
     maccy
     monitorcontrol
+    poppler-utils
+    libreoffice-bin
+    openclaw
     tree
     _7zz
     gitleaks
