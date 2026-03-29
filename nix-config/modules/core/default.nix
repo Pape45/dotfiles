@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   imports = [
     ./system.nix
     ./security.nix
@@ -6,5 +6,11 @@
     ../system/nix.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowInsecurePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "openclaw"
+      ];
+  };
 }
