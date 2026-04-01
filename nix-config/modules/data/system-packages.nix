@@ -20,7 +20,7 @@
     python313Packages.pytest
     python314
     codex
-    nodejs_22
+    fnm
     pnpm
     uv
     maccy
