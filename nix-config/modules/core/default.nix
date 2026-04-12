@@ -8,9 +8,5 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    allowInsecurePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "openclaw"
-      ];
   };
 }

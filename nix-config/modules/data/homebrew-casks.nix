@@ -1,8 +1,6 @@
 {
   casks = [
     "adguard"
-    "safe-exam-browser"
-    "rstudio"
     "altserver"
     "microsoft-word"
     "microsoft-excel"
@@ -12,8 +10,6 @@
     "ProtonVPN"
     "pearcleaner"
     "keepingyouawake"
-    "discord"
-    "duckduckgo"
     "stremio"
     "arc"
     "whatsapp"
@@ -21,5 +17,7 @@
     "prefs-editor"
     "crossover"
     "claude"
+    "logi-options+"
+    "transmission"
   ];
 }

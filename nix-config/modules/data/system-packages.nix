@@ -7,8 +7,8 @@
     anki-bin
     ffmpeg_6
     yt-dlp
-    javaPackages.compiler.temurin-bin.jre-21
-    javaPackages.compiler.temurin-bin.jdk-21
+    javaPackages.compiler.temurin-bin.jre-25
+    javaPackages.compiler.temurin-bin.jdk-25
     brave
     utm
     code-cursor
@@ -27,7 +27,6 @@
     monitorcontrol
     poppler-utils
     libreoffice-bin
-    openclaw
     tree
     _7zz
     gitleaks
@@ -51,18 +50,14 @@
     gnutar
     pigz
     brave
-    swi-prolog
     qbittorrent
     chatgpt
     postgresql_16
     wrangler
     k6
-    dbeaver-bin
     antigravity
     gemini-cli
     firefox
-    opencode
-    mos
     the-unarchiver
     rustup
     go
@@ -70,6 +65,5 @@
     #darwin.xcodes
     #pipenv
     #repomix
-    #qbittorrent
   ];
 }
