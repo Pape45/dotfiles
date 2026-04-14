@@ -8,7 +8,7 @@
     "/System/Applications/Notes.app"
     "/System/Applications/App Store.app"
     "/System/Applications/System Settings.app"
-    "${pkgs.vscode}/Applications/Visual Studio Code.app"
+    "/Applications/Visual Studio Code.app"
     "/System/Applications/Utilities/Terminal.app"
     "${pkgs.emacs}/Applications/Emacs.app"
     "${pkgs.anki-bin}/Applications/Anki.app"
