@@ -19,5 +19,6 @@
     "claude"
     "logi-options+"
     "transmission"
+    "visual-studio-code"
   ];
 }

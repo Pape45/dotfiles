@@ -11,7 +11,6 @@
     javaPackages.compiler.temurin-bin.jdk-25
     brave
     utm
-    code-cursor
     btop
     claude-code
     python313
@@ -55,13 +54,11 @@
     postgresql_16
     wrangler
     k6
-    antigravity
     gemini-cli
     firefox
     the-unarchiver
     rustup
     go
-    vscode
     #darwin.xcodes
     #pipenv
     #repomix
